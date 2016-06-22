@@ -1,0 +1,11 @@
+-
+	var socials = {
+		'vk' : 'http://vk.com/zhitkov',
+		'gh': 'http://github.com/zhitkovkostya',
+		'in' : '#'
+	}
+
+ul.m-social
+	each address, social in socials
+		li.m-social__item(class="m-social__item_"+social)
+			a(href="#{address}").m-social__link

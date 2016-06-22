@@ -1,0 +1,16 @@
+-
+	var menu = {
+		'works' : 'Мои работы',
+		'blog' : 'Блог',
+		'about' : 'Обо мне',
+		'index' : 'Авторизация'
+	}
+
+.l-overlap.js-hide
+	.l-overlap__top-button
+		span.m-menu-toggle.m-menu-toggle_close
+			a(href="#").m-menu-toggle__link
+	ul.m-menu
+		each title, address in menu
+			li.m-menu__item
+				a(href="#{address}.html").m-menu__link= title

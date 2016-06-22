@@ -1,0 +1,7 @@
+// Круговые диаграммы
+$graph__d : 110; // Диаметр (px)
+$graph__sw : 20; // Толщина линии
+$graph__r : ($graph__d / 2) - ($graph__sw / 2);
+$graph__x : $graph__d / 2;
+$graph__y : $graph__d / 2;
+$graph__p : 2 * 3.14 * $graph__r;

@@ -1,0 +1,13 @@
+@mixin size($w, $h) {
+	width: $w;
+	height: $h;
+}
+
+@mixin graph($cx, $cy, $r, $stroke, $stroke-width, $fill) {
+	cx: $cx;
+	cy: $cy;
+	r: $r;
+	stroke: $stroke;
+	stroke-width: $stroke-width;
+	fill: $fill;
+}
