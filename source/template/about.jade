@@ -23,9 +23,11 @@ html
 			.m-map__info
 				h2.m-title.m-title_2 Контакты
 				.m-contacts
-					ul.m-contacts__list
+					ul.m-contacts-big__list
 						include common/_contacts
 							each contact, id in contacts
-								li.m-contacts__item= contact
+								li.m-contacts-big__item
+									img(src='assets/img/'+id+'.svg').m-contacts-big__icon
+									span.m-contacts-big__title= contact
 		include common/_footer
 	script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbmH97MMfOdrC8s7zd4E8PZJkGQn--WR0")
