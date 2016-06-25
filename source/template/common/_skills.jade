@@ -19,11 +19,11 @@
 	}
 each skill__list, skill__title in skills
 	section.m-skills
-		h4.m-title.m-title_4 #{skill__title}
+		h3.m-skills__list-title #{skill__title}
 		ul.m-skills__list
 			each level, skill__title in skill__list
 				li.m-skills__item
-					span.m-skills__title #{skill__title}
 					svg.m-graph
 						circle.m-graph__canvas
 						circle(class='m-graph__progress m-graph__progress_'+level)
+					span.m-skills__title #{skill__title}

@@ -27,57 +27,48 @@
 }
 
 .m-title {
-	font-family: 'Sansus';
-	color: rgb(71, 75, 87);
 	display: block;
-	position: relative;
+	font-family: 'SansusWebissimo', sans-serif;
+	color: #373e42;
 	&_1 {
+		position: relative;
 		margin: 0 auto 59px auto;
-		font-size: 63px;
 		text-align: center;
+		font-size: 63px;
+		line-height: 1.0476;
 		text-transform: uppercase;
-		max-width: 500px;
-		line-height: 67px;
 		&::before {
 			content: ' ';
 			display: block;
+			width: 190px;
+			height: 123px;
 			position: absolute;
 			top: -27px;
 			left: 50%;
-			transform: translateX(-50%);
-			width: 190px;
-			height: 123px;
+			transform: translate3D(-50%, 0, 0);
 			background: url("../img/stars2.svg") no-repeat center center;
 			opacity: 0.1;
+			z-index: -1;
 		}
 	}
 	&_2 {
-		margin: 0 auto 27px auto;
-		font-size: 35px;
-		font-weight: 500;
+		position: relative;
+		margin: 0 auto 57px auto;
 		text-align: center;
+		font-size: 35px;
+		line-height: 1.171518;
 		text-transform: uppercase;
-		max-width: 300px;
 		&::after {
 			content: ' ';
 			display: block;
-			position: absolute;
-			left: 50%;
-			transform: translateX(-50%);
-			bottom: -14px;
 			width: 89px;
 			height: 3px;
-			background-color: rgb(86, 99, 88);
+			position: absolute;
+			left: 50%;
+			bottom: -30px;
+			transform: translateX(-50%);
+			background-color: #566358;
 		}
-	}
-	&_3 {
-
-	}
-	&_4 {
-		font-size: 28px;
-		font-weight: 500;
-		color: #474b57;
-		margin: 0 0 20px 0;
 	}
 	&_light {
 		color: #fff;
@@ -100,10 +91,12 @@
 }
 
 .m-input {
-	margin-bottom: 20px;
+	$input-height: 45px;
+	@include size(338px, $input-height);
+	position: relative;
+	margin: 0 auto 20px auto;
 	&__input {
-		width: 338px;
-		height: 45px;
+		@include size(100%, 100%);
 		padding: 0 14px;
 		border: none;
 		outline: none;
@@ -117,13 +110,28 @@
 	}
 	&__icon {
 		position: absolute;
-		width: 45px;
-		height: 45px;
+		@include size($input-height, $input-height);
 		background-color: rgb(240, 239, 233);
-		line-height: 45px;
-		text-align: center;
-		font-size: 16px;
-		color: rgb(196, 203, 205);
+		&_login::before {
+			content: ' ';
+			display: block;
+			@include size($input-height, $input-height);
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: url('../img/login.svg') no-repeat center center;
+			background-size: $input-height / 3;
+		}
+		&_password::before {
+			content: ' ';
+			display: block;
+			@include size($input-height, $input-height);
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: url('../img/password.svg') no-repeat center center;
+			background-size: $input-height / 2;
+		}
 	}
 }
 
@@ -162,6 +170,10 @@
 		content: '\f14a';
 	}
 	&__text {
+		font-family: 'Roboto', sans-serif;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 1.5;
 		color: #fff;
 	}
 }
@@ -176,7 +188,7 @@
 	&__input {
 		display: none;
 	}
-	&__input + &__text::before {
+	&__input + &__answer::before {
 		content: '\f10c';
 		margin-right: 10px;
 		color: rgb(5, 72, 190);
@@ -184,20 +196,36 @@
 		font-size: 20px;
 		text-align: center;
 	}
-	&__input:checked + &__text::before {
+	&__input:checked + &__answer::before {
 		content: '\f192';
 	}
-	&__text {
-		color: #fff;
+	&__question {
 		display: block;
 		margin-bottom: 16px;
+		font-family: 'Roboto', sans-serif;
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 1.5;
+		color: #fff;
+	}
+	&__answer {
+		display: block;
+		margin-bottom: 16px;
+		font-family: 'Roboto', sans-serif;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 1.5;
+		color: #fff;
 	}
 }
 
 .m-user-info {
 	position: relative;
 	padding-top: 34px;
-	height: 273px;
+	min-height: 273px;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	color: #ffffff;
 	&_special::before {
 		content: ' ';
 		display: block;
@@ -207,7 +235,7 @@
 		width: 100%;
 		height: 100%;
 		background: url('../img/stars1.svg') no-repeat center center;
-		background-size: cover;
+		background-size: 459px 270px;
 		opacity: 0.07;
 	}
 	&__userpic {
@@ -220,23 +248,27 @@
 		background-size: cover;
 	}
 	&__username {
-		position: relative;
 		display: block;
 		width: 100%;
-		margin: 0 auto;
-		text-align: center;
-		font-size: 35px;
+		font-family: 'Roboto', sans-serif;
+		font-size: 28px;
 		font-weight: 500;
-		color: #fff;
+		line-height: 1.2143;
 	}
 	&__description {
-		position: relative;
 		display: block;
 		width: 100%;
-		text-align: center;
+		font-family: 'Roboto', sans-serif;
 		font-size: 16px;
-		font-weight: 300;
-		color: #ffffff;
+		font-weight: 400;
+		line-height: 1.5;
+	}
+	&__title {
+		margin-bottom: 23px;
+		font-family: 'SansusWebissimo', sans-serif;
+		font-size: 63px;
+		color: #fff;
+		line-height: 0.88888;
 	}
 }
 
@@ -249,6 +281,9 @@
 	padding: 0;
 	list-style: none;
 	text-align: center;
+	font-family: 'SansusWebissimo';
+	font-size: 63px;
+	text-transform: uppercase;
 	&__item {
 		position: relative;
 		&:not(:last-child) {
@@ -267,11 +302,10 @@
 		}
 	}
 	&__link {
-		font-family: 'Sansus';
-		font-size: 63px;
-		color: #fff;
-		text-decoration: none;
-		text-transform: uppercase;
+		&:link, &:visited, &:hover, &:active {
+			text-decoration: none;
+			color: #fff;
+		}
 	}
 }
 
@@ -298,19 +332,27 @@
 }
 
 .m-login-button {
-	display: block;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 45px;
+	padding: 0 28px;
 	position: absolute;
 	right: 20px;
 	top: 24px;
-	padding: 12px 28px;
-	color: #fff;
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 2.25;
 	text-decoration: none;
-	&:link, &:visited, &:active {
+	&:link, &:visited {
 		border: 1px solid rgb(255, 255, 255);
+		color: #fff;
 	}
-	&:hover {
+	&:hover, &:active {
 		border-color: transparent;
 		background-color: rgb(8, 60, 150);
+		color: #fff;
 	}
 }
 
@@ -362,6 +404,10 @@
 		margin: 0;
 		padding: 0;
 		list-style: none;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 500;
+		color: #474b57;
+		line-height: 1.5;
 	}
 	&__item {
 		padding: 15px;
@@ -370,7 +416,7 @@
 			display: inline-block;
 			width: 46%;
 		}
-		@media screen and (max-width: 1199px) {
+		@media screen and (max-width: 1200px) {
 			display: block;
 			width: 100%;
 		}
@@ -414,8 +460,8 @@
 .m-footer-section {
 	position: relative;
 	padding: 31px;
-	font-size: 14px;
-	line-height: 24px;
+	font-size: 16px;
+	line-height: 1.5;
 	@media screen and (min-width: 1200px) {
 		&:not(:last-child)::after {
 			content: ' ';
@@ -425,28 +471,34 @@
 			top: 31px;
 			bottom: 31px;
 			background-color: rgba(255, 255, 255, 0.2);
+			font-weight: 300;
 		}
 		&_description {
+			display: block;
 			float: left;
 			width: 35%;
 			text-align: left;
+			font-weight: 300;
 		}
 		&_nav {
 			float: left;
 			width: 40%;
 			text-align: left;
+			font-weight: 500;
 		}
 		&_contacts {
 			float: left;
 			width: 25%;
 			text-align: left;
+			font-weight: 300;
 		}
 	}
-	@media screen and (max-width: 1199px) {
+	@media screen and (max-width: 1200px) {
 		&_description {
 			float: left;
 			width: 100%;
 			text-align: center;
+			font-weight: 300;
 			&::after {
 				content: ' ';
 				height: 2px;
@@ -461,14 +513,16 @@
 			float: left;
 			width: 50%;
 			text-align: left;
+			font-weight: 500;
 		}
 		&_contacts {
 			float: left;
 			width: 50%;
 			text-align: right;
+			font-weight: 300;
 		}
 	}
-	@media screen and (max-width: 767px) {
+	@media screen and (max-width: 768px) {
 		&:not(:last-child)::after {
 			content: ' ';
 			height: 2px;
@@ -482,16 +536,19 @@
 			float: left;
 			width: 100%;
 			text-align: center;
+			font-weight: 300;
 		}
 		&_nav {
 			float: left;
 			width: 100%;
 			text-align: center;
+			font-weight: 500;
 		}
 		&_contacts {
 			float: left;
 			width: 100%;
 			text-align: center;
+			font-weight: 300;
 		}
 	}
 }
@@ -562,7 +619,6 @@
 		display: inline-block;
 		max-width: 387px;
 		color: #fff;
-		font-style: italic;
 		line-height: 1.625;
 		&:not(:last-child) {
 			margin-right: 10px;
@@ -582,9 +638,14 @@
 		}
 	}
 	&__comment {
+		margin-bottom: 15px;
 		position: relative;
 		text-align: left;
-		margin-bottom: 15px;
+		font-family: 'Roboto', sans-serif;
+		font-size: 16px;
+		font-weight: 400;
+		font-style: italic;
+		line-height: 1.625;
 		&::before {
 			content: ' ';
 			position: absolute;
@@ -602,9 +663,19 @@
 	}
 	&__author-name {
 		text-align: center;
+		font-family: 'Roboto', sans-serif;
+		font-size: 16px;
+		font-weight: 700;
+		font-style: italic;
+		line-height: 1.625;
 	}
 	&__author-description {
 		text-align: center;
+		font-family: 'Roboto', sans-serif;
+		font-size: 16px;
+		font-weight: 400;
+		font-style: italic;
+		line-height: 1.625;
 		&::before {
 			content: '- ';
 		}
@@ -612,17 +683,18 @@
 }
 
 .m-tabs {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: stretch;
 	width: 100%;
+	height: 45px;
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	display: table;
-	table-layout: fixed;
 	&__item {
+		flex-grow: 1;
 		position: relative;
-		display: table-cell;
-		line-height: 45px;
-		text-align: center;
 		background-color: rgba(0, 76, 209, 0.85);
 		&:hover {
 			background-color: rgba(4, 62, 163, 0.85);
@@ -638,10 +710,16 @@
 		}
 	}
 	&__link {
-		display: block;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
 		&:link, &:visited, &:hover, &:active {
+			font-family: 'Roboto', sans-serif;
+			font-size: 16px;
+			font-weight: 500;
+			line-height: 2.25;
 			color: #fff;
-			font-weight: 400;
 			text-decoration: none;
 		}
 	}
@@ -659,24 +737,29 @@
 }
 
 .m-paragraph {
-	position: relative;
-	color: #474b57;
-	line-height: 24px;
+	display: block;
 	margin: 0 0 10px 0;
+	position: relative;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #474b57;
 }
 
 .m-article {
 	&__list {
+		display: block;
+		float: left;
+		width: 70%;
 		margin: 0;
 		padding: 0 30px;
-		width: 70%;
-		float: left;
 		list-style: none;
-		@media screen and (max-width: 767px) {
+		@media screen and (max-width: 768px) {
 			width: 100%;
 		}
 	}
 	&__item {
+		display: block;
 		margin: 0;
 		padding: 0;
 		position: relative;
@@ -696,24 +779,28 @@
 		}
 		p {
 			@extend .m-paragraph;
-			margin: 0 0 10px 0;
+			margin: 0 0 20px 0;
 		}
 		img {
-			width: 100%;
+			max-width: 100%;
 		}
 	}
 	&__title {
 		margin: 0 0 20px 0;
-		font-family: 'Sansus';
+		font-family: 'SansusWebissimo', sans-serif;
 		font-size: 35px;
 		font-weight: 500;
+		line-height: 1.17143;
 		color: #455a64;
 	}
 	&__date {
 		display: block;
 		margin-bottom: 19px;
-		color: rgba(#083c96, 0.70);
+		font-family: 'Roboto', sans-serif;
 		font-size: 16px;
+		font-weight: 400;
+		color: rgba(#083c96, 0.70);
+		line-height: 2.5625;
 	}
 }
 
@@ -727,16 +814,33 @@
 	&__item {
 		margin: 0;
 		padding: 0;
+		line-height: 1.625;
+		font-family: 'Roboto', sans-serif;
 	}
 	&__link {
 		&:link, &:visited {
-			position: relative;
+			display: block;
 			padding: 10px 20px;
+			position: relative;
+			font-weight: 400;
 			color: #566358;
 			text-decoration: none;
-			display: block;
 		}
-		&_active, &_active:link, &_active:visited, &:hover, &:active {
+		&:hover, &:active {
+			color: #083c96;
+			&:after {
+				content: ' ';
+				position: absolute;
+				display: block;
+				background-color: #083c96;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				width: 3px;
+			}
+		}
+		&_active, &_active:link {
+			font-weight: 700;
 			color: #083c96;
 			&:after {
 				content: ' ';
@@ -753,31 +857,40 @@
 }
 
 .m-skills {
-	margin: 0;
 	&__list {
 		margin: 0;
 		padding: 0;
 		list-style: none;
 	}
+	&__list-title {
+		margin: 0 0 20px 0;
+		font-family: 'Roboto', sans-serif;
+		font-size: 28px;
+		font-weight: 500;
+		line-height: 1.171518;
+		color: #474b57;
+	}
 	&__item {
 		display: inline-block;
-		position: relative;
-		margin: 0 34px 40px 0;
-		padding: 0;
 		width: #{$graph__d}px;
 		height: #{$graph__d}px;
+		margin: 0 34px 40px 0;
+		padding: 0;
+		position: relative;
 	}
 	&__title {
 		display: block;
+		margin: auto;
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%,-50%);
-		margin: auto;
 		text-align: center;
-		color: #243994;
+		font-family: 'Roboto', sans-serif;
 		font-size: 12.8px;
 		font-weight: 500;
+		line-height: 1.1466;
+		color: #243994;
 	}
 }
 
@@ -921,7 +1034,9 @@
 	&__description {
 		display: block;
 		margin-bottom: 50px;
+		font-family: 'Roboto', sans-serif;
 		font-size: 16px;
+		font-weight: 500;
 		color: #083c96;
 	}
 }

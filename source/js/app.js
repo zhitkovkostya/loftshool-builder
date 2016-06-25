@@ -7,8 +7,8 @@ $('.m-menu-toggle').on('click', function () {
 $(document).ready(function initMap() {
 	var mapDiv = document.getElementById('m-map');
 	var map = new google.maps.Map(mapDiv, {
-		center: {lat: 59.94, lng: 30.32},
-		zoom: 14,
+		center: {lat: 59.947, lng: 30.320},
+		zoom: 15,
 		scrollwheel: false,
 		navigationControl: false,
 		mapTypeControl: false,
@@ -221,7 +221,7 @@ $(document).ready(function initMap() {
 				"elementType": "all",
 				"stylers": [
 					{
-						"color": "#054690"
+						"color": "#4369aa"
 					},
 					{
 						"visibility": "on"

@@ -22,7 +22,6 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		width: 100%;
-		max-width: 460px;
 	}
 	&__arrow-down {
 		position: absolute;
@@ -89,7 +88,8 @@
 	display: block;
 	width: 100%;
 	position: relative;
-	color: rgb(255, 255, 255);
+	font-family: 'Roboto', sans-serif;
+	color: #ffffff;
 	&_big {
 		background-color: rgba(28, 31, 41, 0.85);
 		width: 100%;
@@ -103,14 +103,14 @@
 		padding: 10px 0;
 		text-align: center;
 		background-color: rgba(8, 60, 150, 0.85);
-		font-weight: 200;
+		font-weight: 300;
 	}
 	&_special {
 		position: absolute;
 		bottom: 40px;
 		left: 50%;
 		transform: translateX(-50%);
-		font-weight: 200;
+		font-weight: 300;
 		text-align: center;
 	}
 }
@@ -129,17 +129,18 @@
 }
 
 .l-front {
-	backface-visibility: hidden;
-	z-index: 2;
-	transform: rotateY(0deg) translate(-50%, 20%); /* for FF 31 */
-	background-color: rgba(28, 31, 41, 0.5);
+	width: 380px;
+	padding-top: 35px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	width: 380px;
-	padding-top: 35px;
+	transform: rotateY(0deg) translate(-50%, 20%); /* for FF 31 */
+	background-color: rgba(28, 31, 41, 0.5);
+	color: #ffffff;
+	backface-visibility: hidden;
+	z-index: 2;
 	&__user-info {
-		margin-bottom: 35px;
+		margin-bottom: 20px;
 	}
 	&__social {
 		margin-bottom: 35px;
@@ -149,21 +150,22 @@
 }
 
 .l-back {
-	backface-visibility: hidden;
-	transform: rotateY(180deg) translate(50%, 20%);
-	text-align: center;
-	background-color: rgba(28, 31, 41, 0.5);
+	width: 380px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	width: 380px;
+	transform: rotateY(180deg) translate(50%, 20%);
+	background-color: rgba(28, 31, 41, 0.5);
+	text-align: center;
+	color: #ffffff;
+	backface-visibility: hidden;
 	&__title {
 		display: block;
 		text-align: center;
 		margin: 35px 0 40px;
-		font-family: 'Sansus';
-		color: #fff;
+		font-family: 'SansusWebissimo', sans-serif;
 		font-size: 35px;
+		line-height: 1.171428;
 		text-transform: uppercase;
 	}
 	&__input-username {
@@ -241,7 +243,7 @@
 	&__nav {
 		width: 30%;
 		float: left;
-		@media screen and (max-width: 767px) {
+		@media screen and (max-width: 768px) {
 			display: none;
 		}
 	}

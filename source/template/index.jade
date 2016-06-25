@@ -1,54 +1,52 @@
 doctype html
 html
 	include common/_head
-	body.page-welcome
+	body
 	<!--[if lt IE 7]>
 	<p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
 	<![endif]-->
+	.l-wrapper_welcome
+		a(href="#").m-login-button Авторизоваться
+		.l-card-container
+			.l-card
+				.l-front
+					.l-front__user-info
+						.m-user-info
+							.m-user-info__userpic
+							.m-user-info__username Константин Житков
+							.m-user-info__description Личный сайт веб-разработчика
+					.l-front__social
+						include common/_socials
+					ul.m-tabs
+						li.m-tabs__item
+							a(href="works.html").m-tabs__link Мои работы
+						li.m-tabs__item
+							a(href="about.html").m-tabs__link Обо мне
+						li.m-tabs__item
+							a(href="blog.html").m-tabs__link Блог
+				.l-back
+					.l-back__title Авторизуйтесь
+					.m-input
+						span.m-input__icon.m-input__icon_login
+						input(type="text", placeholder="Логин").m-input__input.m-input__input_iconed
+					.m-input
+						span.m-input__icon.m-input__icon_password
+						input(type="text", placeholder="Пароль").m-input__input.m-input__input_iconed
+					label.m-checkbox
+						input(type="checkbox").m-checkbox__input
+						span.m-checkbox__text Я человек
+					span.m-radio__question Вы точно не робот?
+					label.m-radio
+						input(type="radio" name="isHuman", value="yes").m-radio__input
+						span.m-radio__answer Да
+					label.m-radio
+						input(type="radio" name="isHuman" value="no").m-radio__input
+						span.m-radio__answer Не уверен
+					ul.m-tabs
+						li.m-tabs__item
+							a(href="index.html").m-tabs__link На главную
+						li.m-tabs__item
+							a(href="#").m-tabs__link Войти
 
-	a(href="#").m-login-button Авторизоваться
-	.l-card-container
-		.l-card
-			.l-front
-				.l-front__user-info
-					.m-user-info
-						.m-user-info__userpic
-						.m-user-info__username Константин Житков
-						.m-user-info__description Личный сайт веб-разработчика
-				.l-front__social
-					include common/_socials
-				ul.m-tabs
-					li.m-tabs__item
-						a(href="works.html").m-tabs__link Мои работы
-					li.m-tabs__item
-						a(href="about.html").m-tabs__link Обо мне
-					li.m-tabs__item
-						a(href="blog.html").m-tabs__link Блог
-			.l-back
-				.l-back__title Авторизуйтесь
-				.m-input
-					span.m-input__icon
-						span.icon.icon_user
-					input(type="text", placeholder="Логин").m-input__input.m-input__input_iconed
-				.m-input
-					span.m-input__icon
-						span.icon.icon_pass
-					input(type="text", placeholder="Пароль").m-input__input.m-input__input_iconed
-				label.m-checkbox
-					input(type="checkbox").m-checkbox__input
-					span.m-checkbox__text Я человек
-				span.m-radio__text Вы точно не робот?
-				label.m-radio
-					input(type="radio" name="isHuman", value="yes").m-radio__input
-					span.m-radio__text Да
-				label.m-radio
-					input(type="radio" name="isHuman" value="no").m-radio__input
-					span.m-radio__text Не уверен
-				ul.m-tabs
-					li.m-tabs__item
-						a(href="index.html").m-tabs__link На главную
-					li.m-tabs__item
-						a(href="#").m-tabs__link Войти
-
-	footer.l-footer.l-footer_special
-		span.footer__content © Константин Житков | создано с любовью в LoftSchool | 2016
+		footer.l-footer.l-footer_special
+			span.footer__content © Константин Житков | создано с любовью в LoftSchool | 2016
