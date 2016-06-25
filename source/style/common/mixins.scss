@@ -1,4 +1,4 @@
-@mixin size($w, $h) {
+@mixin size($w, $h: $w) {
 	width: $w;
 	height: $h;
 }
@@ -10,4 +10,28 @@
 	stroke: $stroke;
 	stroke-width: $stroke-width;
 	fill: $fill;
+}
+
+/* ---- MEDIA QUERIES ---- */
+
+$phone-width: 320px;
+$tablet-width: 768px;
+$desktop-width: 1200px;
+
+@mixin phone {
+	@media (min-width: #{$phone-width}) and (max-width: #{$tablet-width - 1px}) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (min-width: #{$desktop-width}) {
+		@content;
+	}
 }

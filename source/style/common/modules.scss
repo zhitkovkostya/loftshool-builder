@@ -92,7 +92,7 @@
 
 .m-input {
 	$input-height: 45px;
-	@include size(338px, $input-height);
+	@include size(89.5%, $input-height);
 	position: relative;
 	margin: 0 auto 20px auto;
 	&__input {
@@ -154,7 +154,15 @@
 .m-checkbox {
 	display: block;
 	cursor: pointer;
-	margin-bottom: 20px;
+	@include desktop {
+		margin-bottom: 1rem;
+	}
+	@include tablet {
+		margin-bottom: 1rem;
+	}
+	@include phone {
+		margin-bottom: 1rem;
+	}
 	&__input {
 		display: none;
 	}
@@ -201,7 +209,6 @@
 	}
 	&__question {
 		display: block;
-		margin-bottom: 16px;
 		font-family: 'Roboto', sans-serif;
 		font-size: 16px;
 		font-weight: 700;
@@ -221,8 +228,8 @@
 
 .m-user-info {
 	position: relative;
-	padding-top: 34px;
-	min-height: 273px;
+	padding-top: 4rem;
+	min-height: 27.3rem;
 	text-align: center;
 	font-family: 'Roboto', sans-serif;
 	color: #ffffff;
@@ -235,38 +242,77 @@
 		width: 100%;
 		height: 100%;
 		background: url('../img/stars1.svg') no-repeat center center;
-		background-size: 459px 270px;
+		background-size: 45.9rem 27rem;
 		opacity: 0.07;
+	}
+	@include desktop {
+		width: 38rem;
+	}
+	@include tablet {
+		width: 34.8rem;
+	}
+	@include phone {
+		width: 30rem;
 	}
 	&__userpic {
 		position: relative;
-		width: 140px;
-		height: 140px;
-		margin: 0px auto 18px auto;
+		@include size (14rem);
 		border-radius: 50%;
 		background: url("../../assets/img/userpic.jpg") no-repeat 72% 8%;
 		background-size: cover;
+		@include desktop {
+			margin: 0 auto 1.2rem auto;
+		}
+		@include tablet {
+			margin: 0 auto 1.2rem auto;
+		}
+		@include phone {
+			margin: 0 auto 2rem auto;
+		}
 	}
 	&__username {
 		display: block;
 		width: 100%;
 		font-family: 'Roboto', sans-serif;
-		font-size: 28px;
 		font-weight: 500;
-		line-height: 1.2143;
+		@include desktop {
+			margin-bottom: 0.5rem;
+			font-size: 2.8rem;
+			line-height: 1.2143;
+		}
+		@include tablet {
+			margin-bottom: 0.5rem;
+			font-size: 2.8rem;
+			line-height: 1.2143;
+		}
+		@include phone {
+			margin-bottom: 0.5rem;
+			font-size: 2.1rem;
+			line-height: 1.3333;
+		}
 	}
 	&__description {
 		display: block;
 		width: 100%;
 		font-family: 'Roboto', sans-serif;
-		font-size: 16px;
 		font-weight: 400;
-		line-height: 1.5;
+		@include desktop {
+			font-size: 1.6rem;
+			line-height: 1.5;
+		}
+		@include tablet {
+			font-size: 1.6rem;
+			line-height: 1.5;
+		}
+		@include phone {
+			font-size: 1.4rem;
+			line-height: 1.7143;
+		}
 	}
 	&__title {
-		margin-bottom: 23px;
+		margin-bottom: 2.3rem;
 		font-family: 'SansusWebissimo', sans-serif;
-		font-size: 63px;
+		font-size: 6.3rem;
 		color: #fff;
 		line-height: 0.88888;
 	}
@@ -282,7 +328,7 @@
 	list-style: none;
 	text-align: center;
 	font-family: 'SansusWebissimo';
-	font-size: 63px;
+	font-size: 6.3rem;
 	text-transform: uppercase;
 	&__item {
 		position: relative;
@@ -335,16 +381,11 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 45px;
-	padding: 0 28px;
 	position: absolute;
-	right: 20px;
-	top: 24px;
 	font-family: 'Roboto', sans-serif;
-	font-size: 16px;
 	font-weight: 500;
-	line-height: 2.25;
 	text-decoration: none;
+	z-index: 100;
 	&:link, &:visited {
 		border: 1px solid rgb(255, 255, 255);
 		color: #fff;
@@ -353,6 +394,28 @@
 		border-color: transparent;
 		background-color: rgb(8, 60, 150);
 		color: #fff;
+	}
+	@include desktop {
+		padding: 0.3rem 2.8rem;
+		right: 2rem;
+		top: 2.4rem;
+		font-size: 1.6rem;
+		line-height: 2.25;
+	}
+	@include tablet {
+		padding: 0.3rem 2.8rem;
+		right: 2rem;
+		top: 2.4rem;
+		font-size: 1.6rem;
+		line-height: 2.25;
+	}
+	@include phone {
+		padding: 0.7rem 2rem;
+		right: 50%;
+		top: 2.4rem;
+		transform: translate3D(50%, 0, 0);
+		font-size: 1.4rem;
+		line-height: 1.71429;
 	}
 }
 
@@ -385,10 +448,6 @@
 			transform: translate(0%, 0%);
 		}
 	}
-}
-
-#m-map {
-
 }
 
 .m-contacts {
@@ -459,17 +518,17 @@
 
 .m-footer-section {
 	position: relative;
-	padding: 31px;
-	font-size: 16px;
+	padding: 3.1rem;
+	font-size: 1.6rem;
 	line-height: 1.5;
-	@media screen and (min-width: 1200px) {
+	@include desktop {
 		&:not(:last-child)::after {
 			content: ' ';
-			width: 2px;
+			width: 0.2rem;
 			position: absolute;
 			right: 0;
-			top: 31px;
-			bottom: 31px;
+			top: 3.1rem;
+			bottom: 3.1rem;
 			background-color: rgba(255, 255, 255, 0.2);
 			font-weight: 300;
 		}
@@ -696,6 +755,8 @@
 		flex-grow: 1;
 		position: relative;
 		background-color: rgba(0, 76, 209, 0.85);
+		font-family: 'Roboto', sans-serif;
+		font-weight: 500;
 		&:hover {
 			background-color: rgba(4, 62, 163, 0.85);
 		}
@@ -708,6 +769,18 @@
 				border-color: transparent;
 			}
 		}
+		@include desktop {
+			font-size: 1.6rem;
+			line-height: 2.25;
+		}
+		@include tablet {
+			font-size: 1.6rem;
+			line-height: 2.25;
+		}
+		@include phone {
+			font-size: 1.4rem;
+			line-height: 1.7143;
+		}
 	}
 	&__link {
 		display: flex;
@@ -715,10 +788,6 @@
 		align-items: center;
 		height: 100%;
 		&:link, &:visited, &:hover, &:active {
-			font-family: 'Roboto', sans-serif;
-			font-size: 16px;
-			font-weight: 500;
-			line-height: 2.25;
 			color: #fff;
 			text-decoration: none;
 		}
