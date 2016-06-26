@@ -32,11 +32,23 @@
 	color: #373e42;
 	&_1 {
 		position: relative;
-		margin: 0 auto 59px auto;
 		text-align: center;
-		font-size: 63px;
-		line-height: 1.0476;
 		text-transform: uppercase;
+		@include desktop {
+			margin: 0 auto 7rem auto;
+			font-size: 6.3rem;
+			line-height: 1.04762;
+		}
+		@include tablet {
+			margin: 0 auto 5rem auto;
+			font-size: 4.9rem;
+			line-height: 1.1429;
+		}
+		@include phone {
+			margin: 0 auto 4rem auto;
+			font-size: 3.5rem;
+			line-height: 1.2;
+		}
 		&::before {
 			content: ' ';
 			display: block;
@@ -53,21 +65,42 @@
 	}
 	&_2 {
 		position: relative;
-		margin: 0 auto 57px auto;
 		text-align: center;
-		font-size: 35px;
-		line-height: 1.171518;
 		text-transform: uppercase;
+		@include desktop {
+			margin: 0 auto 6rem auto;
+			font-size: 3.5rem;
+			line-height: 1.17143;
+		}
+		@include tablet {
+			margin: 0 auto 5rem auto;
+			font-size: 3rem;
+			line-height: 1.3667;
+		}
+		@include phone {
+			margin: 0 auto 4rem auto;
+			font-size: 2.8rem;
+			line-height: 1.333;
+		}
 		&::after {
 			content: ' ';
 			display: block;
-			width: 89px;
+			width: 9rem;
 			height: 3px;
 			position: absolute;
 			left: 50%;
-			bottom: -30px;
 			transform: translateX(-50%);
 			background-color: #566358;
+			@include desktop {
+				bottom: -3rem;
+			}
+			@include tablet {
+				bottom: -2.5rem;
+			}
+			@include phone {
+				width: 6rem;
+				bottom: -2rem;
+			}
 		}
 	}
 	&_light {
@@ -91,17 +124,17 @@
 }
 
 .m-input {
-	$input-height: 45px;
-	@include size(89.5%, $input-height);
+	$input-height: 4.5rem;
+	@include size(100%, $input-height);
 	position: relative;
-	margin: 0 auto 20px auto;
+	margin-bottom: 2rem;
 	&__input {
-		@include size(100%, 100%);
-		padding: 0 14px;
+		@include size(100%);
+		padding: 0 1.5rem;
 		border: none;
 		outline: none;
 		&_iconed {
-			padding-left: 65px;
+			padding-left: 6.5rem;
 		}
 		&_special {
 			background-color: rgba(255, 255, 255, 0.07);
@@ -140,10 +173,17 @@
 		resize: none;
 		border: none;
 		outline: none;
-		width: 338px;
-		height: 130px;
-		padding: 14px;
-		margin-bottom: 17px;
+		width: 100%;
+		height: 13rem;
+		padding: 1.5rem;
+		margin-bottom: 2rem;
+		@include desktop {
+		}
+		@include tablet {
+		}
+		@include phone {
+			height: 14rem;
+		}
 		&_special {
 			background-color: rgba(255, 255, 255, 0.07);
 			color: rgba(255, 255, 255, 0.5);
@@ -189,19 +229,18 @@
 .m-radio {
 	display: inline-block;
 	cursor: pointer;
-	margin-bottom: 20px;
 	&:not(:last-of-type) {
-		margin-right: 40px;
+		margin-right: 4rem;
 	}
 	&__input {
 		display: none;
 	}
 	&__input + &__answer::before {
 		content: '\f10c';
-		margin-right: 10px;
+		margin-right: 1rem;
 		color: rgb(5, 72, 190);
 		font-family: 'FontAwesome';
-		font-size: 20px;
+		font-size: 2rem;
 		text-align: center;
 	}
 	&__input:checked + &__answer::before {
@@ -210,30 +249,30 @@
 	&__question {
 		display: block;
 		font-family: 'Roboto', sans-serif;
-		font-size: 16px;
+		font-size:1.6rem;
 		font-weight: 700;
 		line-height: 1.5;
 		color: #fff;
 	}
 	&__answer {
 		display: block;
-		margin-bottom: 16px;
+		margin-bottom: 1.6rem;
 		font-family: 'Roboto', sans-serif;
-		font-size: 16px;
+		font-size: 1.6rem;
 		font-weight: 400;
 		line-height: 1.5;
 		color: #fff;
 	}
 }
 
-.m-user-info {
+.m-page-info {
+	margin: 0 auto;
 	position: relative;
-	padding-top: 4rem;
-	min-height: 27.3rem;
+	padding: 4rem 0;
 	text-align: center;
 	font-family: 'Roboto', sans-serif;
 	color: #ffffff;
-	&_special::before {
+	&::before {
 		content: ' ';
 		display: block;
 		position: absolute;
@@ -242,11 +281,13 @@
 		width: 100%;
 		height: 100%;
 		background: url('../img/stars1.svg') no-repeat center center;
-		background-size: 45.9rem 27rem;
+		background-size: 100%;
+		background-position-y: 20%;
 		opacity: 0.07;
+		z-index: -1;
 	}
 	@include desktop {
-		width: 38rem;
+		width: 50rem;
 	}
 	@include tablet {
 		width: 34.8rem;
@@ -255,38 +296,18 @@
 		width: 30rem;
 	}
 	&__userpic {
-		position: relative;
-		@include size (14rem);
-		border-radius: 50%;
-		background: url("../../assets/img/userpic.jpg") no-repeat 72% 8%;
-		background-size: cover;
-		@include desktop {
-			margin: 0 auto 1.2rem auto;
-		}
-		@include tablet {
-			margin: 0 auto 1.2rem auto;
-		}
-		@include phone {
-			margin: 0 auto 2rem auto;
-		}
+		display: inline-block;
+		margin-bottom: 1.4rem;
 	}
 	&__username {
 		display: block;
 		width: 100%;
+		margin-bottom: 0.5rem;
 		font-family: 'Roboto', sans-serif;
+		font-size: 3.5rem;
 		font-weight: 500;
-		@include desktop {
-			margin-bottom: 0.5rem;
-			font-size: 2.8rem;
-			line-height: 1.2143;
-		}
-		@include tablet {
-			margin-bottom: 0.5rem;
-			font-size: 2.8rem;
-			line-height: 1.2143;
-		}
+		line-height: 1.17149;
 		@include phone {
-			margin-bottom: 0.5rem;
 			font-size: 2.1rem;
 			line-height: 1.3333;
 		}
@@ -295,21 +316,16 @@
 		display: block;
 		width: 100%;
 		font-family: 'Roboto', sans-serif;
+		font-size: 1.6rem;
 		font-weight: 400;
-		@include desktop {
-			font-size: 1.6rem;
-			line-height: 1.5;
-		}
-		@include tablet {
-			font-size: 1.6rem;
-			line-height: 1.5;
-		}
+		line-height: 1.5;
 		@include phone {
 			font-size: 1.4rem;
 			line-height: 1.7143;
 		}
 	}
 	&__title {
+		/*	Заголовок блога */
 		margin-bottom: 2.3rem;
 		font-family: 'SansusWebissimo', sans-serif;
 		font-size: 6.3rem;
@@ -319,32 +335,51 @@
 }
 
 .m-menu {
+	margin: 0;
+	padding: 0;
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
-	margin: 0;
-	padding: 0;
 	list-style: none;
 	text-align: center;
 	font-family: 'SansusWebissimo';
-	font-size: 6.3rem;
+	line-height: 0.6857;
 	text-transform: uppercase;
 	&__item {
 		position: relative;
-		&:not(:last-child) {
-			margin-bottom: 60px;
-		}
 		&:hover::after {
 			content: ' ';
 			display: block;
+			width: 8.9rem;
 			position: absolute;
+			bottom: -3rem;
 			left: 50%;
 			transform: translateX(-50%);
-			bottom: -18px;
-			width: 90px;
-			height: 3px;
+			height: 0.3rem;
 			background-color: #fff;
+			@include phone {
+				width: 5.6rem;
+				bottom: -1.9rem;
+			}
+		}
+		@include desktop {
+			font-size: 6.3rem;
+			&:not(:last-child) {
+				margin-bottom: 9rem;
+			}
+		}
+		@include tablet {
+			font-size: 4.9rem;
+			&:not(:last-child) {
+				margin-bottom: 10rem;
+			}
+		}
+		@include phone {
+			font-size: 3.5rem;
+			&:not(:last-child) {
+				margin-bottom: 5rem;
+			}
 		}
 	}
 	&__link {
@@ -357,22 +392,77 @@
 
 .m-menu-toggle {
 	display: inline-block;
-	@include size(40px, 40px);
 	padding: 0;
 	cursor: pointer;
+	&:link, &:visited, &:hover, &:active {
+		display: block;
+	}
 	&_open {
-		background: url('../img/hamburger.svg') no-repeat center center;
-		background-size: 40px;
+		@include size(4rem, 3.5rem);
+		@include desktop {
+			&::before {
+				content: ' ';
+				display: block;
+				width: 100%;
+				height: 100%;
+				background: url('../img/hamburger.svg') no-repeat center center;
+				background-size: 3.6rem;
+			}
+		}
+		@include tablet {
+			&::before {
+				content: ' ';
+				display: block;
+				width: 100%;
+				height: 100%;
+				background: url('../img/hamburger.svg') no-repeat center center;
+				background-size: 3.6rem;
+			}
+		}
+		@include phone {
+			@include size(2.6rem, 2.3rem);
+			&::before {
+				content: ' ';
+				display: block;
+				width: 100%;
+				height: 100%;
+				background: url('../img/hamburger.svg') no-repeat center center;
+				background-size: 2.5rem;
+			}
+		}
 	}
 	&_close {
-		background: url('../img/close.svg') no-repeat center center;
-		background-size: 40px;
-	}
-	&__link {
-		&:link, &:visited, &:hover, &:active {
-			display: block;
-			width: 100%;
-			height: 100%;
+		@include size(3.6rem);
+		@include desktop {
+			&::before {
+				content: ' ';
+				display: block;
+				width: 100%;
+				height: 100%;
+				background: url('../img/close.svg') no-repeat center center;
+				background-size: 3.6rem;
+			}
+		}
+		@include tablet {
+			&::before {
+				content: ' ';
+				display: block;
+				width: 100%;
+				height: 100%;
+				background: url('../img/close.svg') no-repeat center center;
+				background-size: 3.6rem;
+			}
+		}
+		@include phone {
+			@include size(2.5rem);
+			&::before {
+				content: ' ';
+				display: block;
+				width: 100%;
+				height: 100%;
+				background: url('../img/close.svg') no-repeat center center;
+				background-size: 2.5rem;
+			}
 		}
 	}
 }
@@ -381,9 +471,14 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 0.3rem 2.8rem;
 	position: absolute;
+	top: 2.4rem;
+	right: 2rem;
 	font-family: 'Roboto', sans-serif;
+	font-size: 1.6rem;
 	font-weight: 500;
+	line-height: 2.25;
 	text-decoration: none;
 	z-index: 100;
 	&:link, &:visited {
@@ -394,20 +489,6 @@
 		border-color: transparent;
 		background-color: rgb(8, 60, 150);
 		color: #fff;
-	}
-	@include desktop {
-		padding: 0.3rem 2.8rem;
-		right: 2rem;
-		top: 2.4rem;
-		font-size: 1.6rem;
-		line-height: 2.25;
-	}
-	@include tablet {
-		padding: 0.3rem 2.8rem;
-		right: 2rem;
-		top: 2.4rem;
-		font-size: 1.6rem;
-		line-height: 2.25;
 	}
 	@include phone {
 		padding: 0.7rem 2rem;
@@ -422,15 +503,15 @@
 .m-map {
 	max-width: 100%;
 	position: relative;
-	@media screen and (min-width: 1200px) {
+	@include desktop {
 		margin-bottom: -197px;
 		height: calc(197px + 100vh);
 	}
-	@media screen and (max-width: 1199px) {
+	@include tablet {
 		margin-bottom: -283px;
 		height: calc(283px + 100vh);
 	}
-	@media screen and (max-width: 767px) {
+	@include phone {
 		margin-bottom: -462px;
 		height: calc(462px + 100vh);
 	}
@@ -639,33 +720,31 @@
 
 .m-recalls {
 	max-width: 100%;
-	padding: 74px 0 250px 0;
 	background: url('../img/night2.jpg') no-repeat center center;
 	background-size: cover;
 	position: relative;
-	@media screen and (min-width: 1200px) {
-		margin-bottom: -197px;
+	@include desktop {
+		margin-bottom: -200px;
+		padding: 70px 0 250px 0;
 	}
-	@media screen and (max-width: 1199px) {
-		margin-bottom: -283px;
-		padding-bottom: 344px;
+	@include tablet {
+		margin-bottom: -288px;
+		padding: 50px 0 350px 0;
 	}
-	@media screen and (max-width: 767px) {
+	@include phone {
 		margin-bottom: -462px;
-		padding-bottom: 520px;
+		padding: 40px 0 520px 0;
 	}
-	&__info {
+	&__form {
 		margin: 0 auto;
 		max-width: 380px;
 		background-color: rgba(255, 255, 255, 0.05);
-		padding: 32px 0 0 0;
 		text-align: center;
 	}
 }
 
 .m-comment {
 	&__list {
-		margin: 0 0 70px 0;
 		padding: 0;
 		list-style: none;
 		position: relative;
@@ -673,7 +752,6 @@
 		text-align: center;
 	}
 	&__item {
-		margin: 0;
 		padding: 0;
 		display: inline-block;
 		max-width: 387px;
@@ -682,13 +760,25 @@
 		&:not(:last-child) {
 			margin-right: 10px;
 		}
+		@include desktop {
+			margin: 0 0 7rem 0;
+		}
+		@include tablet {
+			margin: 0 0 5rem 0;
+		}
+		@include phone {
+			margin: 0 0 4rem 0;
+		}
 	}
 	&__userpic {
-		width: 77px;
-		height: 77px;
-		margin: 0px auto 16px auto;
+		@include size(7.7rem);
+		margin: 0 auto 2.2rem auto;
 		border-radius: 50%;
 		background-size: cover;
+		@include phone {
+			@include size(5.1rem);
+			margin-bottom: 2.2rem;
+		}
 		&_1 {
 			background-image: url(../img/user-dmitrii.jpg);
 		}
@@ -697,44 +787,62 @@
 		}
 	}
 	&__comment {
-		margin-bottom: 15px;
+		margin-bottom: 2rem;
 		position: relative;
 		text-align: left;
 		font-family: 'Roboto', sans-serif;
-		font-size: 16px;
+		font-size: 1.4rem;
 		font-weight: 400;
+		line-height: 1.7143;
 		font-style: italic;
-		line-height: 1.625;
+		@include desktop {
+			margin-bottom: 3rem;
+			padding: 0 1.2rem;
+			font-size: 1.6rem;
+			line-height: 1.625;
+		}
+		@include tablet {
+			padding: 0 2.3rem;
+		}
+		@include phone {
+			padding: 0 1rem;
+			text-align: center;
+		}
 		&::before {
 			content: ' ';
 			position: absolute;
-			top: -22px;
-			left: 4px;
+			top: -2.2rem;
+			left: 0.4rem;
 			display: block;
-			@include size(90px, 74px);
+			@include size(9rem, 7.4rem);
 			background: url('../img/quote.svg') no-repeat;
-			background-size: 74px;
+			background-size: 7.4rem;
 			opacity: 0.1;
 		}
-		@media screen and (max-width: 767px) {
-			text-align: center;
-		}
 	}
-	&__author-name {
+	&__comment-author {
 		text-align: center;
 		font-family: 'Roboto', sans-serif;
-		font-size: 16px;
+		font-size: 1.6rem;
 		font-weight: 700;
 		font-style: italic;
-		line-height: 1.625;
+		line-height: 1.5;
+		@include phone {
+			font-size: 1.4rem;
+			line-height: 1.7143;
+		}
 	}
-	&__author-description {
+	&__comment-description {
 		text-align: center;
 		font-family: 'Roboto', sans-serif;
-		font-size: 16px;
+		font-size: 1.6rem;
 		font-weight: 400;
 		font-style: italic;
-		line-height: 1.625;
+		line-height: 1.5;
+		@include phone {
+			font-size: 1.4rem;
+			line-height: 1.7143;
+		}
 		&::before {
 			content: '- ';
 		}
@@ -1111,3 +1219,136 @@
 }
 
 /////
+
+.m-welcome {
+	margin: 0 auto;
+	position: relative;
+	padding: 4rem 2rem 3.2rem 2rem;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	color: #ffffff;
+	&__userpic {
+		display: inline-block;
+		@include desktop {
+			margin-bottom: 0.4rem;
+		}
+		@include tablet {
+			margin-bottom: 0.6rem;
+		}
+		@include phone {
+			margin-bottom: 1.3rem;
+		}
+	}
+	&__username {
+		display: block;
+		width: 100%;
+		margin-bottom: 0.5rem;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 500;
+		@include desktop {
+			font-size: 2.8rem;
+			line-height: 1.2143;
+		}
+		@include tablet {
+			font-size: 2.8rem;
+			line-height: 1.2143;
+		}
+		@include phone {
+			font-size: 2.1rem;
+			line-height: 1.3333;
+		}
+	}
+	&__description {
+		display: block;
+		width: 100%;
+		margin-bottom: 1.7em;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 400;
+		@include desktop {
+			font-size: 1.6rem;
+			line-height: 1.5;
+		}
+		@include tablet {
+			font-size: 1.6rem;
+			line-height: 1.5;
+		}
+		@include phone {
+			font-size: 1.4rem;
+			line-height: 1.7143;
+		}
+	}
+	&__social {
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		&-item {
+			display: inline-block;
+			@include size(31px, 31px);
+			padding: 0;
+			@each $social in (vk, gh, in) {
+				&_#{$social} {
+					background: url('../img/#{$social}.svg') no-repeat center center;
+					background-size: 28px;
+				}
+			}
+			&:not(:last-child) {
+				margin: 0 21px 0 0;
+			}
+		}
+		&-link {
+			&:link, &:visited, &:hover, &:active {
+				display: block;
+				@include size(31px, 31px);
+				text-decoration: none;
+			}
+		}
+	}
+}
+.m-login-form {
+	@include desktop {
+		padding: 3.6rem 2.1rem 2rem 2.1rem;
+	}
+	@include tablet {
+		padding: 3rem 2.1rem 2rem 2.1rem;
+	}
+	@include phone {
+		padding: 2.7rem 2.1rem 2rem 2.1rem;
+	}
+	&__title {
+		display: block;
+		text-align: center;
+		font-family: 'SansusWebissimo', sans-serif;
+		text-transform: uppercase;
+		@include desktop {
+			margin-bottom: 3.6rem;
+			font-size: 3.5rem;
+			line-height: 1.17143;
+		}
+		@include tablet {
+			margin-bottom: 3rem;
+			font-size: 3rem;
+			line-height: 1.4;
+		}
+		@include phone {
+			margin-bottom: 3.1rem;
+			font-size: 3rem;
+			line-height: 1.4;
+		}
+	}
+}
+
+.m-contact-form {
+	padding: 4rem 2rem 0 2rem;
+	@include desktop {
+		padding-top: 4.5rem;
+	}
+}
+
+.m-userpic {
+	display: block;
+	@include size (14rem);
+	border-radius: 50%;
+	background: url("../../assets/img/userpic.jpg") no-repeat 72% 8%;
+	background-size: cover;
+}

@@ -2,21 +2,68 @@
 	position: relative;
 	width: 100vw;
 	height: 100vh;
+	min-height: 62rem;
 	max-width: 100%;
 	background: url('../img/night.jpg') no-repeat center center fixed;
 	background-size: cover;
 	overflow: hidden;
 	&__social {
+		display: inline-block;
+		margin: 0;
+		padding: 0;
 		position: absolute;
-		top: 25px;
-		left: 30px;
+		top: 3.2rem;
+		left: 3rem;
+		list-style: none;
+		@include phone {
+			top: 1.2rem;
+			left: 1.1rem;
+		}
+		&-item {
+			display: inline-block;
+			@include size(2.3rem);
+			padding: 0;
+			@include phone {
+				@include size(2rem);
+			}
+			@each $social in (vk, gh, in) {
+				&_#{$social} {
+					background: url('../img/#{$social}.svg') no-repeat center center;
+					background-size: 2.3rem;
+					@include phone {
+						background: url('../img/#{$social}.svg') no-repeat center center;
+						background-size: 2rem;
+					}
+				}
+			}
+			&:not(:last-child) {
+				margin: 0 2.7rem 0 0;
+			}
+		}
+		&-link {
+			&:link, &:visited, &:hover, &:active {
+				display: block;
+				@include size(100%);
+				text-decoration: none;
+			}
+		}
 	}
 	&__top-button {
 		position: absolute;
-		top: 30px;
-		right: 30px;
+		@include desktop {
+			top: 2.8rem;
+			right: 3rem;
+		}
+		@include tablet {
+			top: 2.8rem;
+			right: 3rem;
+		}
+		@include phone {
+			top: 1rem;
+			right: 1.1rem;
+		}
 	}
-	&__user-info {
+	&__page-info {
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -74,13 +121,23 @@
 	top: 0;
 	left: 0;
 	z-index: 90;
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 	background-color: rgba(24, 54, 105, 0.87);
 	&__top-button {
 		position: absolute;
-		top: 29px;
-		right: 48px;
+		@include desktop {
+			top: 2.8rem;
+			right: 3rem;
+		}
+		@include tablet {
+			top: 2.8rem;
+			right: 3rem;
+		}
+		@include phone {
+			top: 1rem;
+			right: 1.1rem;
+		}
 	}
 }
 
@@ -158,74 +215,44 @@
 		&.js-flip .l-card {
 			transform: rotateY(180deg);
 		}
-
 	}
-}
-
-.l-front {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: rotateY(0deg) translate(-50%, -50%); /* for FF 31 */
-	background-color: rgba(28, 31, 41, 0.5);
-	color: #ffffff;
-	backface-visibility: hidden;
-	z-index: 2;
-	&__user-info {
-		margin-bottom: 1rem;
-	}
-	&__social {
-		text-align: center;
-		color: rgba(0, 76, 209, 0.7);
+	&__front {
+		max-width: 38rem;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: rotateY(0deg) translate(-50%, -50%); /* for FF 31 */
+		background-color: rgba(28, 31, 41, 0.5);
+		color: #ffffff;
+		backface-visibility: hidden;
+		z-index: 2;
 		@include desktop {
-			margin-bottom: 2.7rem;
+			width: 38rem;// 31.667%
 		}
 		@include tablet {
-			margin-bottom: 2.7rem;
+			width: 34.8rem; // 45.3125%;
 		}
 		@include phone {
-			margin-bottom: 3rem;
+			width: 30rem; // 93.75%
 		}
 	}
-}
-
-.l-back {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: rotateY(180deg) translate(50%, -50%);
-	background-color: rgba(28, 31, 41, 0.5);
-	text-align: center;
-	color: #ffffff;
-	backface-visibility: hidden;
-	@include desktop {
-		width: 38rem;
-	}
-	@include tablet {
-		width: 34.8rem;
-	}
-	@include phone {
-		width: 30rem;
-	}
-	&__title {
-		display: block;
+	&__back {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: rotateY(180deg) translate(50%, -50%);
+		background-color: rgba(28, 31, 41, 0.5);
 		text-align: center;
-		font-family: 'SansusWebissimo', sans-serif;
-		text-transform: uppercase;
+		color: #ffffff;
+		backface-visibility: hidden;
 		@include desktop {
-			margin: 3.6rem 0;
-			font-size: 3.5rem;
-			line-height: 1.17143;
+			width: 38rem;
 		}
 		@include tablet {
-			margin: 3rem 0;
-			font-size: 3rem;
-			line-height: 1.4;
+			width: 34.8rem;
 		}
 		@include phone {
-			margin: 2.7rem 0 3.1rem 0;
-			font-size: 3rem;
-			line-height: 1.4;
+			width: 30rem;
 		}
 	}
 }

@@ -1,13 +1,16 @@
 header.l-header
-	.l-header__social
-		include _socials
+	include _socials
+	ul.l-header__social
+		each address, social in socials
+			li.l-header__social-item(class="l-header__social-item_" + social)
+				a(href="#{address}").l-header__social-link
 	.l-header__top-button
-		span.m-menu-toggle.m-menu-toggle_open
-			a(href="#").m-menu-toggle__link
-	.l-header__user-info
-		.m-user-info.m-user-info_special
-			.m-user-info__userpic
-			.m-user-info__username Константин Житков
-			.m-user-info__description Личный сайт веб-разработчика
+		a(href="#").m-menu-toggle.m-menu-toggle_open
+	.l-header__page-info
+		.m-page-info
+			.m-page-info__userpic
+				.m-userpic
+			.m-page-info__username Константин Житков
+			.m-page-info__description Личный сайт веб-разработчика
 	.l-header__arrow-down
 		a(href="#").m-arrow-down
