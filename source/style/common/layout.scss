@@ -80,7 +80,15 @@
 		display: block;
 		position: relative;
 		width: 100%;
-		padding: 59px 0 0 0;
+		@include desktop {
+			padding-top: 6rem;
+		}
+		@include tablet {
+			padding-top: 5rem;
+		}
+		@include phone {
+			padding-top: 4rem;
+		}
 	}
 }
 
