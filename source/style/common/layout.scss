@@ -105,21 +105,33 @@
 	position: relative;
 	flex: 1 1 100%;
 	&_left {
+		flex: 1 1 100%;
 		position: relative;
-		padding: 40px 80px;
 		background-color: rgb(242, 240, 232);
-		flex: 1 1 50%;
-		@media screen and (max-width: 767px) {
-			flex: 1 1 100%;
+		@include desktop {
+			flex: 1 1 50%;
+			padding: 4rem 8rem;
+		}
+		@include tablet {
+			padding: 5rem 15rem;
+		}
+		@include phone {
+			padding: 3rem 1rem;
 		}
 	}
 	&_right {
 		position: relative;
-		padding: 40px;
 		background-color: #efebe0;
-		flex: 1 1 50%;
-		@media screen and (max-width: 767px) {
-			flex: 1 1 100%;
+		flex: 1 1 100%;
+		@include desktop {
+			flex: 1 1 50%;
+			padding: 4rem 1rem 4rem 4rem;
+		}
+		@include tablet {
+			padding: 5rem 15rem;
+		}
+		@include phone {
+			padding: 3rem 1rem;
 		}
 	}
 }
@@ -267,23 +279,21 @@
 
 .l-blog {
 	position: relative;
-	padding: 97px 0;
+	padding: 11rem 0;
 	background-color: rgb(250, 248, 240);
-	&::before {
-		content: ' ';
-		display: block;
-		position: absolute;
-		top: -20vh;
-		left: 0;
-		width: 100%;
-		height: 260px;
-		background: url('../img/bg.svg') no-repeat center center;
-		background-size: cover;
+	@include tablet {
+		padding-top: 6rem;
+	}
+	@include phone {
+		padding-top: 4rem;
 	}
 	&__nav {
 		width: 30%;
 		float: left;
-		@media screen and (max-width: 768px) {
+		@include tablet {
+			display: none;
+		}
+		@include phone {
 			display: none;
 		}
 	}

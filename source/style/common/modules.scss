@@ -341,7 +341,15 @@
 		font-family: 'SansusWebissimo', sans-serif;
 		font-size: 6.3rem;
 		color: #fff;
-		line-height: 0.88888;
+		line-height: 0.889;
+		@include tablet {
+			font-size: 4.9rem;
+			line-height: 1.06;
+		}
+		@include phone {
+			font-size: 3.5rem;
+			line-height: 1.7143;
+		}
 	}
 }
 
@@ -532,13 +540,22 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		background-color: rgba(255, 255, 255, 0.7);
-		padding: 38px 19px 30px 19px;
-		@media screen and (max-width: 767px) {
+		background-color: rgba(252, 252, 252, 0.7);
+		@include desktop {
+			min-width: 58rem;
+			padding: 4rem 2rem;
+		}
+		@include tablet {
+			min-width: 34.8rem;
+			padding: 4rem 3rem;
+		}
+		@include phone {
+			padding: 3rem 1rem;
 			top: 0;
 			left: 0;
 			right: 0;
 			transform: translate(0%, 0%);
+			background-color: rgba(252, 252, 252, 1);
 		}
 	}
 }
@@ -557,30 +574,45 @@
 		padding: 0;
 		list-style: none;
 		font-family: 'Roboto', sans-serif;
+		font-size: 1.6rem;
 		font-weight: 500;
-		color: #474b57;
 		line-height: 1.5;
 	}
 	&__item {
-		padding: 15px;
 		vertical-align: middle;
-		@media screen and (min-width: 1200px) {
+		@include desktop {
 			display: inline-block;
 			width: 46%;
+			&:not(:nth-last-child(-n+2)) {
+				margin-bottom: 3rem;
+			}
 		}
-		@media screen and (max-width: 1200px) {
+		@include tablet {
 			display: block;
 			width: 100%;
+			&:not(:last-child) {
+				margin-bottom: 2rem;
+			}
+		}
+		@include phone {
+			&:not(:last-child) {
+				margin-bottom: 1rem;
+			}
 		}
 	}
 	&__icon {
-		width: 40px;
-		height: 40px;
-		margin-right: 10px;
+		@include size(4.5rem);
+		margin-right: 1rem;
 		vertical-align: middle;
+		@include phone {
+			@include size(3.4rem);
+		}
 	}
-	&__title {
-
+	&__link {
+		&:link, &:visited, &:hover, &:active {
+			color: #474b57;
+			text-decoration: none;
+		}
 	}
 }
 
@@ -937,9 +969,18 @@
 	margin: 0 0 10px 0;
 	position: relative;
 	font-family: 'Roboto', sans-serif;
+	font-size: 1.6rem;
 	font-weight: 400;
 	line-height: 1.5;
 	color: #474b57;
+	@include tablet {
+		font-size: 1.4rem;
+		line-height: 1.7143;
+	}
+	@include phone {
+		font-size: 1.4rem;
+		line-height: 1.7143;
+	}
 }
 
 .m-article {
@@ -948,10 +989,15 @@
 		float: left;
 		width: 70%;
 		margin: 0;
-		padding: 0 30px;
+		padding: 0 10rem;
 		list-style: none;
-		@media screen and (max-width: 768px) {
+		@include tablet {
 			width: 100%;
+			padding: 0 2.3rem;
+		}
+		@include phone {
+			width: 100%;
+			padding: 0 1rem;
 		}
 	}
 	&__item {
@@ -960,8 +1006,16 @@
 		padding: 0;
 		position: relative;
 		&:not(:last-child) {
-			padding-bottom: 71px;
-			margin-bottom: 61px;
+			padding-bottom: 7.5rem;
+			margin-bottom: 7rem;
+			@include tablet {
+				padding-bottom: 5.5rem;
+				margin-bottom: 5rem;
+			}
+			@include phone {
+				padding-bottom: 3rem;
+				margin-bottom: 3rem;
+			}
 			&::after {
 				content: ' ';
 				position: absolute;
@@ -969,8 +1023,11 @@
 				left: 0;
 				display: block;
 				width: 100%;
-				height: 5px;
+				height: 0.5rem;
 				background-color: rgba(55, 62, 66, 0.07);
+				@include phone {
+					height: 0.4rem;
+				}
 			}
 		}
 		p {
@@ -982,21 +1039,34 @@
 		}
 	}
 	&__title {
-		margin: 0 0 20px 0;
+		margin: 0 0 3rem 0;
 		font-family: 'SansusWebissimo', sans-serif;
-		font-size: 35px;
+		font-size: 3.5rem;
 		font-weight: 500;
 		line-height: 1.17143;
 		color: #455a64;
+		@include tablet {
+			margin: 0 0 2rem 0;
+			font-size: 3rem;
+			line-height: 1.2;
+		}
+		@include phone {
+			margin: 0 0 2rem 0;
+			font-size: 2.1rem;
+			line-height: 1.333;
+		}
 	}
 	&__date {
 		display: block;
-		margin-bottom: 19px;
+		margin: 0 0 2rem 0;
 		font-family: 'Roboto', sans-serif;
 		font-size: 16px;
 		font-weight: 400;
 		color: rgba(#083c96, 0.70);
 		line-height: 2.5625;
+		@include desktop {
+			margin-bottom: 3rem;
+		}
 	}
 }
 
@@ -1053,26 +1123,51 @@
 }
 
 .m-skills {
+	@include desktop {
+		padding-top: 5rem;
+	}
+	@include tablet {
+		padding-top: 4rem;
+	}
+	@include phone {
+		padding-top: 2rem;
+	}
 	&__list {
 		margin: 0;
 		padding: 0;
 		list-style: none;
+		text-align: center;
+		@include desktop {
+			text-align: left;;
+		}
 	}
 	&__list-title {
-		margin: 0 0 20px 0;
+		margin: 0 2rem 2rem 2rem;
+		text-align: center;
 		font-family: 'Roboto', sans-serif;
-		font-size: 28px;
+		font-size: 2.1rem;
 		font-weight: 500;
-		line-height: 1.171518;
+		line-height: 1.333;
 		color: #474b57;
+		@include desktop {
+			text-align: left;
+			font-size: 2.8rem;
+			line-height: 1.1429;
+		}
 	}
 	&__item {
 		display: inline-block;
 		width: #{$graph__d}px;
 		height: #{$graph__d}px;
-		margin: 0 34px 40px 0;
+		margin: 0 2rem 4rem 2rem;
 		padding: 0;
 		position: relative;
+		@include tablet {
+			margin-bottom: 4.5rem;
+		}
+		@include phone {
+			margin-bottom: 3rem;
+		}
 	}
 	&__title {
 		display: block;

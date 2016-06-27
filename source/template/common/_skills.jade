@@ -17,8 +17,8 @@
 			'Bower' : 70
 		}
 	}
-each skill__list, skill__title in skills
-	section.m-skills
+section.m-skills
+	each skill__list, skill__title in skills
 		h3.m-skills__list-title #{skill__title}
 		ul.m-skills__list
 			each level, skill__title in skill__list
