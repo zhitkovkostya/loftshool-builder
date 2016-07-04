@@ -121,11 +121,11 @@ $(document).ready(function () {
 		var w = (window.innerWidth / 2) - mouse_dx; // Вычисляем для x перемещения
 		var h = (window.innerHeight / 2) - mouse_dy; // Вычисляем для y перемещения
 
-		var bottomPosition = ((window.innerHeight / 2) * (20 / 100)); // Вычисляем на сколько нам надо опустить вниз наш слой что бы при перемещении по Y не видно было краев
+		var bottomPosition = ((window.innerHeight) - 700); // Вычисляем на сколько нам надо опустить вниз наш слой что бы при перемещении по Y не видно было краев
 		var widthPosition = -50 + w * (2 / 1000); // Вычисляем коофицент смешения по X
 		var heightPosition = h * (2 / 1000); // Вычисляем коофицент смешения по Y
 		layer.css({ // Выбираем элемент и добавляем css
-			'bottom': '-' + bottomPosition + '%',  // Выставляем bottom
+			'bottom': '-' + bottomPosition + 'px',  // Выставляем bottom
 			'transform': 'translate3d(' + widthPosition + '%, ' + heightPosition + '%, 0)' // Используем translate3d для более лучшего рендеринга на странице
 		});
 	});
