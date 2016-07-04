@@ -1,12 +1,73 @@
+.l-preloader {
+	display: block;
+	width: 100%;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	background: url("../img/preloader__bg.jpg") no-repeat center center;
+	background-size: cover;
+	font-size: 5rem;
+	color: #fff;
+	z-index: 110;
+	&__progress {
+		display: block;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate3d(-50%, -50%, 0);
+	}
+	&__animation {
+		$preloader-size: 15rem;
+		display: block;
+		@include size($preloader-size);
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate3D(-50%, -50%, 0);
+		border: 0.5rem solid #fff;
+		border-radius: $preloader-size / 2;
+		&::after {
+			content: ' ';
+			display: block;
+			@include size(2rem);
+			position: absolute;
+			top: -4rem;
+			left: 50%;
+			transform: translate3D(-50%, 0, 0);
+			background-color: #fff;
+			border-radius: 1rem;
+		}
+		animation: spin ease-in-out 4s infinite;
+		@keyframes spin {
+			0% {
+				transform:  translate3D(-50%, -50%, 0) rotate(0deg) ;
+			}
+			100% {
+				transform:  translate3D(-50%, -50%, 0) rotate(360deg) ;
+			}
+		}
+	}
+}
+
 .l-header {
 	position: relative;
 	width: 100vw;
-	height: 100vh;
+	height: calc(100vh + 20.6rem);
 	min-height: 62rem;
 	max-width: 100%;
-	background: url('../img/night.jpg') no-repeat center center fixed;
+	margin-bottom: -20.6rem;
+	background: url('../img/night.jpg') no-repeat center right fixed;
 	background-size: cover;
 	overflow: hidden;
+	@include tablet {
+		height: calc(100vh + 15.6rem);
+		margin-bottom: -15.6rem;
+	}
+	@include phone {
+		height: calc(100vh + 12.2rem);
+		margin-bottom: -12.2rem;
+	}
 	&__social {
 		display: inline-block;
 		margin: 0;
@@ -26,16 +87,6 @@
 			@include phone {
 				@include size(2rem);
 			}
-			@each $social in (vk, gh, in) {
-				&_#{$social} {
-					background: url('../img/#{$social}.svg') no-repeat center center;
-					background-size: 2.3rem;
-					@include phone {
-						background: url('../img/#{$social}.svg') no-repeat center center;
-						background-size: 2rem;
-					}
-				}
-			}
 			&:not(:last-child) {
 				margin: 0 2.7rem 0 0;
 			}
@@ -45,6 +96,17 @@
 				display: block;
 				@include size(100%);
 				text-decoration: none;
+			}
+		}
+		&-icon {
+			@include size(2.3rem);
+			fill: #fff;
+			transition: fill $transition__time_fast;
+			&:hover {
+				fill: $color_2;
+			}
+			@include phone {
+				@include size(2rem);
 			}
 		}
 	}
@@ -65,40 +127,74 @@
 	}
 	&__page-info {
 		position: absolute;
-		top: 50%;
+		top: calc(50% - (20.6rem / 2));
 		left: 50%;
 		transform: translate(-50%, -50%);
 		width: 100%;
+		@include tablet {
+			top: calc(50% - (15.6rem / 2));
+		}
+		@include phone {
+			top: calc(50% - (12.2rem / 2));
+		}
 	}
 	&__arrow-down {
 		position: absolute;
-		bottom: 72px;
+		bottom: calc(7.2rem + 20.6rem);
 		left: 50%;
 		transform: translateX(-50%);
+		@include tablet {
+			bottom: calc(5.2rem + 15.6rem);
+		}
+		@include phone {
+			bottom: calc(3.2rem + 12.2rem);
+		}
 	}
 	&__title {
 		display: block;
-		position: relative;
 		width: 100%;
-		@include desktop {
-			padding-top: 6rem;
+		position: relative;
+		background-color: rgba(#0d1120, 0.85);
+	}
+	&__corner {
+		position: absolute;
+		height: 140px;
+		bottom: 72px;
+		&_left {
+			left: 0;
+			fill: #f2f0e8;
 		}
-		@include tablet {
-			padding-top: 5rem;
-		}
-		@include phone {
-			padding-top: 4rem;
+		&_right {
+			right: 0;
+			fill: #f2f0e8;
+			@include desktop {
+				fill: #efebe0;
+			}
 		}
 	}
 }
 
 .l-wrapper {
+	display: none;
 	position: relative;
 	&_flex {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
 	}
+	&_welcome {
+		overflow: hidden;
+	}
+}
+
+.l-parallax {
+	display: block;
+	width: 220rem;
+	margin-left: 0rem;
+	position: absolute;
+	left: 50%;
+	transform: translate3D(-50%, 0, 0);
+	bottom: -50%;
 }
 
 .l-section {
@@ -110,13 +206,13 @@
 		background-color: rgb(242, 240, 232);
 		@include desktop {
 			flex: 1 1 50%;
-			padding: 4rem 8rem;
+			padding: 0 4rem 8rem 4rem;
 		}
 		@include tablet {
-			padding: 5rem 15rem;
+			padding: 0 5rem 15rem 5rem;
 		}
 		@include phone {
-			padding: 3rem 1rem;
+			padding: 0 3rem 1rem 3rem;
 		}
 	}
 	&_right {
@@ -143,7 +239,7 @@
 	z-index: 90;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(24, 54, 105, 0.87);
+	background-color: rgba($color_4, 0.87);
 	&__top-button {
 		position: absolute;
 		@include desktop {
@@ -179,7 +275,7 @@
 	&_small {
 		padding: 10px 0;
 		text-align: center;
-		background-color: rgba(8, 60, 150, 0.85);
+		background-color: rgba($color_5, 0.85);
 		font-weight: 300;
 	}
 	&_special {
@@ -199,6 +295,45 @@
 		@include phone {
 			bottom: 0.8rem;
 			font-size: 1.4rem;
+		}
+	}
+	&__social {
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		@include phone {
+			top: 1.2rem;
+			left: 1.1rem;
+		}
+		&-item {
+			display: inline-block;
+			@include size(2.3rem);
+			padding: 0;
+			@include phone {
+				@include size(2rem);
+			}
+			&:not(:last-child) {
+				margin: 0 2.7rem 0 0;
+			}
+		}
+		&-link {
+			&:link, &:visited, &:hover, &:active {
+				display: block;
+				@include size(100%);
+				text-decoration: none;
+			}
+		}
+		&-icon {
+			@include size(2.3rem);
+			fill: #fff;
+			transition: fill $transition__time_fast;
+			&:hover {
+				fill: $color_2;
+			}
+			@include phone {
+				@include size(2rem);
+			}
 		}
 	}
 	&__content {
@@ -247,7 +382,7 @@
 		backface-visibility: hidden;
 		z-index: 2;
 		@include desktop {
-			width: 38rem;// 31.667%
+			width: 38rem; // 31.667%
 		}
 		@include tablet {
 			width: 34.8rem; // 45.3125%;
@@ -289,6 +424,8 @@
 	}
 	&__nav {
 		width: 30%;
+		position: relative;
+		height: 1px;
 		float: left;
 		@include tablet {
 			display: none;

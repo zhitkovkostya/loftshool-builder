@@ -7,12 +7,6 @@
 		display: inline-block;
 		@include size(31px, 31px);
 		padding: 0;
-		@each $social in (vk, gh, in) {
-			&_#{$social} {
-				background: url('../img/#{$social}.svg') no-repeat center center;
-				background-size: 28px;
-			}
-		}
 		&:not(:last-child) {
 			margin: 0 21px 0 0;
 		}
@@ -31,47 +25,21 @@
 	font-family: 'SansusWebissimo', sans-serif;
 	color: #373e42;
 	&_1 {
+		margin: 0;
 		position: relative;
 		text-align: center;
 		text-transform: uppercase;
 		@include desktop {
-			margin: 0 auto 7rem auto;
 			font-size: 6.3rem;
 			line-height: 1.04762;
 		}
 		@include tablet {
-			margin: 0 auto 5rem auto;
 			font-size: 4.9rem;
 			line-height: 1.1429;
 		}
 		@include phone {
-			margin: 0 auto 4rem auto;
 			font-size: 3.5rem;
 			line-height: 1.2;
-		}
-		&::before {
-			content: ' ';
-			display: block;
-			position: absolute;
-			top: -27px;
-			left: 50%;
-			transform: translate3D(-50%, 0, 0);
-			background: url("../img/stars2.svg") no-repeat center center;
-			background-size: cover;
-			opacity: 0.1;
-			z-index: -1;
-			@include desktop {
-				width: 19rem;
-				height: 12.3rem;
-			}
-			@include tablet {
-				width: 15.4rem;
-				height: 10rem;
-			}
-			@include phone {
-				width: 12rem;
-				height: 7.77rem;
-			}
 		}
 	}
 	&_2 {
@@ -124,6 +92,44 @@
 		text-align: center;
 		color: rgb(8, 60, 150);
 	}
+	&__container {
+		width: 100%;
+		position: relative;
+		@include desktop {
+			padding: 7rem 0;
+		}
+		@include tablet {
+			padding: 5rem 0;
+		}
+		@include phone {
+			padding: 4rem 0;
+		}
+	}
+	&__background {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate3D(-50%, -50%, 0);
+		fill: transparent;
+		stroke: #fff;
+		opacity: 0.15;
+		z-index: 0;
+		&_accent {
+			stroke: #1056d1;
+		}
+		@include desktop {
+			width: 21.4rem;
+			height: 18rem;
+		}
+		@include tablet {
+			width: 15.4rem;
+			height: 10rem;
+		}
+		@include phone {
+			width: 12rem;
+			height: 7.77rem;
+		}
+	}
 }
 
 .m-img {
@@ -153,29 +159,12 @@
 		}
 	}
 	&__icon {
-		position: absolute;
+		display: block;
 		@include size($input-height, $input-height);
+		padding: 1.3rem;
+		position: absolute;
 		background-color: rgb(240, 239, 233);
-		&_login::before {
-			content: ' ';
-			display: block;
-			@include size($input-height, $input-height);
-			position: absolute;
-			top: 0;
-			left: 0;
-			background: url('../img/login.svg') no-repeat center center;
-			background-size: $input-height / 3;
-		}
-		&_password::before {
-			content: ' ';
-			display: block;
-			@include size($input-height, $input-height);
-			position: absolute;
-			top: 0;
-			left: 0;
-			background: url('../img/password.svg') no-repeat center center;
-			background-size: $input-height / 2;
-		}
+		fill: rgb(200, 199, 193);
 	}
 }
 
@@ -218,15 +207,28 @@
 		display: none;
 	}
 	&__input + &__text::before {
-		content: '\f0c8';
-		margin-right: 10px;
-		color: rgb(5, 72, 190);
-		font-family: 'FontAwesome';
-		font-size: 20px;
-		text-align: center;
+		content: ' ';
+		display: inline-block;
+		width: 2rem;
+		height: 2rem;
+		margin-right: 1rem;
+		position: relative;
+		bottom: -0.3rem;
+		border-radius: 0.3rem;
+		background-color: $color_1;
 	}
 	&__input:checked + &__text::before {
-		content: '\f14a';
+		content: ' ';
+		background: url("../img/check.svg") no-repeat center center;
+		background-size: 1.3rem;
+		display: inline-block;
+		width: 2rem;
+		height: 2rem;
+		margin-right: 1rem;
+		position: relative;
+		bottom: -0.3rem;
+		border-radius: 0.3rem;
+		background-color: $color_1;
 	}
 	&__text {
 		font-family: 'Roboto', sans-serif;
@@ -247,15 +249,25 @@
 		display: none;
 	}
 	&__input + &__answer::before {
-		content: '\f10c';
+		content: ' ';
+		display: inline-block;
+		@include size(2rem);
 		margin-right: 1rem;
-		color: rgb(5, 72, 190);
-		font-family: 'FontAwesome';
-		font-size: 2rem;
-		text-align: center;
+		position: relative;
+		bottom: -0.3rem;
+		border-radius: 1rem;
+		background-color: #fff;
 	}
 	&__input:checked + &__answer::before {
-		content: '\f192';
+		content: ' ';
+		display: inline-block;
+		@include size(1rem);
+		margin-right: 1rem;
+		background: $color_1;
+		position: relative;
+		bottom: -0.3rem;
+		border: 0.5rem solid #fff;
+		border-radius: 1rem;
 	}
 	&__question {
 		display: block;
@@ -283,20 +295,6 @@
 	text-align: center;
 	font-family: 'Roboto', sans-serif;
 	color: #ffffff;
-	&::before {
-		content: ' ';
-		display: block;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: url('../img/stars1.svg') no-repeat center center;
-		background-size: 100%;
-		background-position-y: 20%;
-		opacity: 0.07;
-		z-index: -1;
-	}
 	@include desktop {
 		width: 50rem;
 	}
@@ -350,6 +348,18 @@
 			font-size: 3.5rem;
 			line-height: 1.7143;
 		}
+	}
+	&__background {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translate3D(-50%, 0, 0);
+		fill: transparent;
+		stroke: #fff;
+		opacity: 0.07;
+		z-index: -1;
 	}
 }
 
@@ -410,78 +420,34 @@
 }
 
 .m-menu-toggle {
-	display: inline-block;
+	display: block;
 	padding: 0;
 	cursor: pointer;
-	&:link, &:visited, &:hover, &:active {
-		display: block;
+	fill: #fff;
+	&:hover {
+		fill: rgba(#fff,.7);
 	}
 	&_open {
-		@include size(4rem, 3.5rem);
 		@include desktop {
-			&::before {
-				content: ' ';
-				display: block;
-				width: 100%;
-				height: 100%;
-				background: url('../img/hamburger.svg') no-repeat center center;
-				background-size: 3.6rem;
-			}
+			@include size(4rem, 3.5rem);
 		}
 		@include tablet {
-			&::before {
-				content: ' ';
-				display: block;
-				width: 100%;
-				height: 100%;
-				background: url('../img/hamburger.svg') no-repeat center center;
-				background-size: 3.6rem;
-			}
+			@include size(4rem, 3.5rem);
 		}
 		@include phone {
 			@include size(2.6rem, 2.3rem);
-			&::before {
-				content: ' ';
-				display: block;
-				width: 100%;
-				height: 100%;
-				background: url('../img/hamburger.svg') no-repeat center center;
-				background-size: 2.5rem;
-			}
+
 		}
 	}
 	&_close {
-		@include size(3.6rem);
 		@include desktop {
-			&::before {
-				content: ' ';
-				display: block;
-				width: 100%;
-				height: 100%;
-				background: url('../img/close.svg') no-repeat center center;
-				background-size: 3.6rem;
-			}
+			@include size(3.6rem);
 		}
 		@include tablet {
-			&::before {
-				content: ' ';
-				display: block;
-				width: 100%;
-				height: 100%;
-				background: url('../img/close.svg') no-repeat center center;
-				background-size: 3.6rem;
-			}
+			@include size(3.6rem);
 		}
 		@include phone {
 			@include size(2.5rem);
-			&::before {
-				content: ' ';
-				display: block;
-				width: 100%;
-				height: 100%;
-				background: url('../img/close.svg') no-repeat center center;
-				background-size: 2.5rem;
-			}
 		}
 	}
 }
@@ -499,14 +465,15 @@
 	font-weight: 500;
 	line-height: 2.25;
 	z-index: 100;
+	transition: border-color 0.3s, background-color 0.3s;
 	&:link, &:visited {
-		border: 1px solid rgb(255, 255, 255);
+		border: 1px solid #fff;
 		text-decoration: none;
 		color: #fff;
 	}
 	&:hover, &:active {
 		border-color: transparent;
-		background-color: rgb(8, 60, 150);
+		background-color: $color_5;
 		text-decoration: none;
 		color: #fff;
 	}
@@ -604,6 +571,7 @@
 		@include size(4.5rem);
 		margin-right: 1rem;
 		vertical-align: middle;
+		fill: $color_1;
 		@include phone {
 			@include size(3.4rem);
 		}
@@ -745,7 +713,7 @@
 	display: inline-block;
 	position: relative;
 	padding: 0.3rem 2.8rem;
-	background-color: rgb(0, 76, 209);
+	background-color: $color_1;
 	font-size: 1.6rem;
 	font-weight: 500;
 	line-height: 2.25;
@@ -753,19 +721,19 @@
 	&:link, &:visited, &:hover, &:active {
 		text-decoration: none;
 	}
-	&_link::before {
-		content: ' ';
-		display: inline-block;
-		position: relative;
-		width: 14px;
-		height: 14px;
-		background: url('../img/link.svg') no-repeat center center;
-		background-size: 14px;
-	}
 	@include phone {
 		padding: 0.7rem 2rem;
 		font-size: 1.4rem;
 		line-height: 1.71429;
+	}
+	&__icon {
+		display: inline-block;
+		max-width: 1.6rem;
+		max-height: 1.6rem;
+		margin-right: 1rem;
+		position: relative;
+		top: 0.3rem;
+		fill: #fff;
 	}
 }
 
@@ -775,16 +743,16 @@
 	background-size: cover;
 	position: relative;
 	@include desktop {
-		margin-bottom: -200px;
-		padding: 70px 0 250px 0;
+		margin-bottom: -20rem;
+		padding-bottom: 25rem;
 	}
 	@include tablet {
-		margin-bottom: -288px;
-		padding: 50px 0 350px 0;
+		margin-bottom: -28.8rem;
+		padding-bottom: 35rem;
 	}
 	@include phone {
-		margin-bottom: -462px;
-		padding: 40px 0 520px 0;
+		margin-bottom: -46.2rem;
+		padding-bottom: 52rem;
 	}
 	&__form {
 		margin: 0 auto;
@@ -806,6 +774,7 @@
 		padding: 0;
 		display: inline-block;
 		max-width: 387px;
+		vertical-align: top;
 		color: #fff;
 		line-height: 1.625;
 		&:not(:last-child) {
@@ -834,7 +803,7 @@
 			background-image: url(../img/user-dmitrii.jpg);
 		}
 		&_2 {
-			background-image: url(../img/user-zar.jpg);
+			background-image: url(../img/vova.png);
 		}
 	}
 	&__comment {
@@ -913,11 +882,12 @@
 	&__item {
 		flex-grow: 1;
 		position: relative;
-		background-color: rgba(0, 76, 209, 0.85);
+		background-color: rgba($color_1, 0.85);
 		font-family: 'Roboto', sans-serif;
 		font-weight: 500;
+		transition: background-color $transition__time_fast;
 		&:hover {
-			background-color: rgba(4, 62, 163, 0.85);
+			background-color: rgba($color_2, 0.85);
 		}
 		&:not(:first-child) {
 			border-left: 2px solid rgba(255, 255, 255, 0.5);
@@ -954,13 +924,18 @@
 }
 
 .m-arrow-down {
-	&:link, &:visited, &:hover, &:active {
-		background: url('../img/arrow_down.svg') no-repeat center center;
-		background-size: 25px;
+	background: url('../img/arrow_down.svg') no-repeat center center;
+	background-size: 2.5rem;
+	display: block;
+	width: 2.5rem;
+	height: 2.5rem;
+	transition: height 0.3s;
+	&:link, &:visited {
 		text-decoration: none;
-		display: block;
-		width: 25px;
-		height: 25px;
+	}
+	&:hover, &:active {
+		text-decoration: none;
+		height: 3rem;
 	}
 }
 
@@ -1062,7 +1037,7 @@
 		font-family: 'Roboto', sans-serif;
 		font-size: 16px;
 		font-weight: 400;
-		color: rgba(#083c96, 0.70);
+		color: rgba($color_5, 0.70);
 		line-height: 2.5625;
 		@include desktop {
 			margin-bottom: 3rem;
@@ -1071,6 +1046,9 @@
 }
 
 .m-blog-contents {
+	position: absolute;
+	top: 0;
+	left: 0;
 	&__list {
 		margin: 0;
 		padding: 0;
@@ -1093,12 +1071,12 @@
 			text-decoration: none;
 		}
 		&:hover, &:active {
-			color: #083c96;
+			color: $color_5;
 			&:after {
 				content: ' ';
 				position: absolute;
 				display: block;
-				background-color: #083c96;
+				background-color: $color_5;
 				top: 0;
 				right: 0;
 				bottom: 0;
@@ -1112,7 +1090,7 @@
 				content: ' ';
 				position: absolute;
 				display: block;
-				background-color: #083c96;
+				background-color: $color_5;
 				top: 0;
 				right: 0;
 				bottom: 0;
@@ -1181,7 +1159,7 @@
 		font-size: 12.8px;
 		font-weight: 500;
 		line-height: 1.1466;
-		color: #243994;
+		color: $color_2;
 	}
 }
 
@@ -1194,7 +1172,7 @@
 		@include graph($graph__x,$graph__y,$graph__r,#dfdcd5,$graph__sw,transparent);
 	}
 	&__progress {
-		@include graph($graph__x,$graph__y,$graph__r,#1056d1,$graph__sw,transparent);
+		@include graph($graph__x,$graph__y,$graph__r,$color_3,$graph__sw,transparent);
 		@each $percent in (0, 10,20,30,40,50,60,70,80,90,100) {
 			&_#{$percent} {
 				stroke-dasharray: ($graph__p / 100 * $percent) $graph__p;
@@ -1234,28 +1212,28 @@
 		}
 		@include tablet {
 			width: 100%;
-			height: 28%;
+			height: 30%;
 		}
 		@include phone {
 			width: 100%;
-			height: 40%;
+			height: 35%;
 		}
 	}
 	&__preview {
-		position: relative;
 		display: block;
 		width: 50%;
 		height: 70%;
+		position: relative;
 		float: right;
-		background: url('../img/project1.png') no-repeat center center;
-		background-size: contain;
+		overflow: hidden;
+		background-color: #e3e2de;
 		@include desktop {
 			width: 50%;
 			height: 70%;
 		}
 		@include tablet {
 			width: 100%;
-			height: 50%;
+			height: 45%;
 		}
 		@include phone {
 			float: left;
@@ -1263,25 +1241,38 @@
 			height: 45%;
 		}
 	}
+	&__image {
+		display: block;
+		max-width: 90%;
+		max-height: 90%;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		margin: auto;
+
+	}
 	&__controls {
 		position: relative;
 		display: block;
 		width: 50%;
 		height: 30%;
+		background-color: #e3ded0;
 		float: right;
-		overflow: auto;
+		overflow: hidden;
 		@include desktop {
 			width: 50%;
 			height: 30%;
 		}
 		@include tablet {
 			width: 100%;
-			height: 22%;
+			height: 25%;
 		}
 		@include phone {
 			float: left;
 			width: 100%;
-			height: 15%;
+			height: 20%;
 		}
 		&_left {
 			position: relative;
@@ -1289,10 +1280,6 @@
 			float: left;
 			width: 50%;
 			height: 100%;
-			background-color: #ccc;
-			font-size: 30px;
-			background: url('../img/project1.png') no-repeat center center;
-			background-size: contain;
 		}
 		&_right {
 			position: relative;
@@ -1300,11 +1287,6 @@
 			float: right;
 			width: 50%;
 			height: 100%;
-			background-color: #ccc;
-			color: #fff;
-			font-size: 30px;
-			background: url('../img/project1.png') no-repeat center center;
-			background-size: contain;
 		}
 		&_button {
 			position: relative;
@@ -1313,29 +1295,22 @@
 			height: 100%;
 			border: 0;
 			outline: none;
-			background-color: transparent;
-			transition: all 0.2s;
-			color: #fff;
-			text-shadow: 0px 1px 3px rgba(150, 150, 150, 1);
+			background-color: rgba($color_2, 0.3);
+			transition: all 0.3s;
 			cursor: pointer;
 			&:hover {
-				background-color: rgba(#000, 0.7);
-				padding: 10px 0 0 0;
+				background-color: rgba($color_2, 0.5);
+				height: 120%;
 			}
-			&-left::before {
-				 content: ' ';
-				 display: block;
-				 width: 100%;
-				 height: 100%;
-				 background: url('../img/slider_arrow_down.svg') no-repeat center center;
-			 }
-			&-right::before {
-				content: ' ';
-				display: block;
-				width: 100%;
-				height: 100%;
-				background: url('../img/slider_arrow_up.svg') no-repeat center center;
-			}
+		}
+		&-icon {
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate3D(-50%,-50%,0);
+			@include size(4rem);
+			fill: #fff;
 		}
 	}
 }
@@ -1347,12 +1322,37 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	&__list {
+		display: block;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		list-style: none;
+	}
+	&__item {
+		display: block;
+		width: 100%;
+		height: 100%;
+		margin: auto;
+		padding: 0;
+		position: absolute;
+		top: -100%;
+		right: 0;
+		left: 0;
+		&_active {
+			top: 0%;
+		}
+	}
 	&__description {
 		display: block;
 		font-family: 'Roboto', sans-serif;
 		font-size: 1.6rem;
 		font-weight: 500;
-		color: #083c96;
+		color: $color_5;
 		@include desktop {
 			margin-bottom: 6rem;
 		}
@@ -1431,12 +1431,6 @@
 			display: inline-block;
 			@include size(31px, 31px);
 			padding: 0;
-			@each $social in (vk, gh, in) {
-				&_#{$social} {
-					background: url('../img/#{$social}.svg') no-repeat center center;
-					background-size: 28px;
-				}
-			}
 			&:not(:last-child) {
 				margin: 0 21px 0 0;
 			}
@@ -1446,6 +1440,14 @@
 				display: block;
 				@include size(31px, 31px);
 				text-decoration: none;
+			}
+		}
+		&-icon {
+			@include size(2.8rem);
+			fill: rgba($color_1, 0.7);
+			transition: fill $transition__time_fast;
+			&:hover {
+				fill: $color_1;
 			}
 		}
 	}
@@ -1496,4 +1498,14 @@
 	border-radius: 50%;
 	background: url("../../assets/img/userpic.jpg") no-repeat 72% 8%;
 	background-size: cover;
+}
+
+.m-video {
+	height: 100vh;
+	width: 100vw;
+	position: absolute;
+	top: 0;
+	overflow: hidden;
+	object-fit: cover;
+	z-index: -1;
 }

@@ -4,10 +4,15 @@ header.l-header
 		each address, social in socials
 			li.l-header__social-item(class="l-header__social-item_" + social)
 				a(href="#{address}").l-header__social-link
-	.l-header__top-button
-		a(href="#").m-menu-toggle.m-menu-toggle_open
+					svg.l-header__social-icon
+						use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="assets/img/sprite.svg#" + social)
+	a(href="#").l-header__top-button
+		svg.m-menu-toggle.m-menu-toggle_open
+			use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="assets/img/sprite.svg#open")
 	.l-header__page-info
 		.m-page-info
+			svg.m-page-info__background
+				use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="assets/img/sprite.svg#stars1")
 			.m-page-info__userpic
 				.m-userpic
 			.m-page-info__username Константин Житков

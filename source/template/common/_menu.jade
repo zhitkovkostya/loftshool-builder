@@ -7,8 +7,9 @@
 	}
 
 .l-overlap.js-hide
-	.l-overlap__top-button
-		a(href="#").m-menu-toggle.m-menu-toggle_close
+	a(href="#").l-overlap__top-button
+		svg.m-menu-toggle.m-menu-toggle_close
+			use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="assets/img/sprite.svg#close")
 	ul.m-menu
 		each title, address in menu
 			li.m-menu__item

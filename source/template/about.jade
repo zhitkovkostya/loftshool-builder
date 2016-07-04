@@ -2,6 +2,7 @@ doctype html
 html
 	include common/_head
 	body
+	include common/_preloader
 	<!--[if lt IE 7]>
 	<p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
 	<![endif]-->
@@ -9,7 +10,10 @@ html
 	include common/_header
 	.l-wrapper.l-wrapper_flex
 		section.l-section.l-section_left
-			h1.m-title.m-title_1 Обо мне
+			.m-title__container
+				svg.m-title__background.m-title__background_accent
+					use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="assets/img/sprite.svg#stars2")
+				h1.m-title.m-title_1 Обо мне
 			img(src="assets/img/userpic.jpg").m-img.m-img_responsive
 			h2.m-title.m-title_2 Кто я
 			p.m-paragraph Я веб-разработчик из Санкт-Петербурга. Мне 21 год. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
@@ -27,8 +31,8 @@ html
 						include common/_contacts
 							each contact, id in contacts
 								li.m-contacts-big__item
-									img(src='assets/img/'+id+'.svg').m-contacts-big__icon
+									svg.m-contacts-big__icon
+										use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="assets/img/sprite.svg#"+id)
 									a(href=id + ": " + contact).m-contacts-big__link= contact
 		include common/_footer
 		script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbmH97MMfOdrC8s7zd4E8PZJkGQn--WR0")
-		script

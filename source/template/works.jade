@@ -2,32 +2,66 @@ doctype html
 html
 	include common/_head
 	body
+	include common/_preloader
 	<!--[if lt IE 7]>
 	<p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
 	<![endif]-->
 	include common/_menu
 	include common/_header
 	.l-header__title
-		h1.m-title.m-title_1 Мои работы
+		.m-title__container
+			svg.m-title__background
+				use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="assets/img/sprite.svg#stars2")
+			h1.m-title.m-title_1.m-title_light Мои работы
 	.l-wrapper.l-wrapper_flex
 		section.l-section
 			.m-slider
 				section.m-slider__preview
+					ul.m-project__list
+						li.m-project__item.m-project__item_active
+							img(src="assets/img/project1.png").m-slider__image
+						li.m-project__item
+							img(src="assets/img/project2.png").m-slider__image
+						li.m-project__item
+							img(src="assets/img/project3.png").m-slider__image
 				section.m-slider__description
 					.m-project
 						h2.m-title.m-title_2 Интернет-радио
 						span.m-project__description HTML5, CSS3, jQuery, three.js
-						a(href="http://viberoom.audio").m-button.m-button_link
+						a(href="http://viberoom.audio").m-button.m-button__link
+							svg.m-button__icon
+								use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="assets/img/sprite.svg#link")
 							span.fa.fa-link
 							|  Посмотреть сайт
 				section.m-slider__controls
 					.m-slider__controls_left
+						ul.m-project__list
+							li.m-project__item
+								img(src="assets/img/project1.png").m-slider__image
+							li.m-project__item.m-project__item_active
+								img(src="assets/img/project2.png").m-slider__image
+							li.m-project__item
+								img(src="assets/img/project3.png").m-slider__image
 						button.m-slider__controls_button.m-slider__controls_button-left
+							svg.m-slider__controls-icon
+								use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="assets/img/sprite.svg#slider_arrow_down")
 					.m-slider__controls_right
+						ul.m-project__list
+							li.m-project__item
+								img(src="assets/img/project1.png").m-slider__image
+							li.m-project__item
+								img(src="assets/img/project2.png").m-slider__image
+							li.m-project__item.m-project__item_active
+								img(src="assets/img/project3.png").m-slider__image
 						button.m-slider__controls_button.m-slider__controls_button-right
+							svg.m-slider__controls-icon
+								use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="assets/img/sprite.svg#slider_arrow_up")
 		section.l-section
 			.m-recalls
-				h1.m-title.m-title_1.m-title_light Что обо мне говорят
+				.m-title__container
+					svg.m-title__background
+						use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="assets/img/sprite.svg#stars3")
+					h1.m-title.m-title_1.m-title_light Что обо мне <br> говорят
 				ul.m-comment__list
 					li.m-comment__item
 						.m-comment__userpic.m-comment__userpic_1
@@ -36,9 +70,9 @@ html
 						.m-comment__comment-description основатель Loftschool
 					li.m-comment__item
 						.m-comment__userpic.m-comment__userpic_2
-						.m-comment__comment Этот код выдержет любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!
-						.m-comment__comment-author Зар Захаров
-						.m-comment__comment-description главный преподаватель
+						.m-comment__comment Можно в графе "что обо мне говорят" будет моя цитата?
+						.m-comment__comment-author Вова Недведский
+						.m-comment__comment-description
 				.m-recalls__form
 					.m-contact-form
 						h2.m-title.m-title_2.m-title_light Связаться со мной

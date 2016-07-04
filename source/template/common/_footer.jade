@@ -9,10 +9,12 @@ footer.l-footer
 						li.m-nav__item
 							a(href="#{address}.html").m-nav__link= title
 			include _socials
-			ul.m-welcome__social
+			ul.l-footer__social
 				each address, social in socials
-					li.m-welcome__social-item(class="m-social__item_" + social)
-						a(href="#{address}").m-welcome__social-link
+					li.l-footer__social-item(class="l-header__social-item_" + social)
+						a(href="#{address}").l-footer__social-link
+							svg.l-footer__social-icon
+								use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="assets/img/sprite.svg#" + social)
 		section.m-footer-section.m-footer-section_contacts
 			ul.m-contacts__list.m-contacts__list
 				include _contacts
