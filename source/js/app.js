@@ -133,35 +133,70 @@ $(document).ready(function () {
 
 /* Слайдер */
 $(document).ready(function () {
-	var counter = 0;
-	var nextBtn = $(".m-slider__controls_button-left");
-	var prevBtn = $(".m-slider__controls_button-right");
+	
+	(function () {
 
-	nextBtn.on("click", function (e) {
-		e.preventDefault();
-		var sliderList = $(".m-project__item");
-		if (counter++ > sliderList.length / 3 - 2) {
-			counter = 0;
-		}
-		console.log(counter);
+		var btn = $(".m-slider__controls_button");
+		var btnPrev = $(".m-slider__controls_button-left");
+		var btnNext = $(".m-slider__controls_button-right");
 
-		var active = "m-project__item_active";
-		var currItem = $(".m-project__item_active");
-		var nextItem = sliderList.eq(counter);
+		var slidesInfo = $(".m-slider__description").find(".m-project__item");
+		var slidesPreview = $(".m-slider__preview").find(".m-project__item");
+		var slidesLeft = $(".m-slider__controls_left").find(".m-project__item");
+		var slidesRight = $(".m-slider__controls_right").find(".m-project__item");
 
-		currItem.animate({
-			"top" : "100%"
-		}, 300);
-		nextItem.animate({
-			"top" : "0%"
-		}, 300, function () {
-			currItem.removeClass(active).css({
-				"top" : "-100%"
-			});
-			nextItem.addClass(active);
+		btn.on("click", function () {
+			slideDown($(this), slidesInfo);
+			slideDown($(this), slidesPreview);
+			slideDown($(this), slidesLeft);
+			slideUp($(this), slidesRight);
 		});
 
-	});
+
+		function slideDown(button, slides) {
+			var activeSlide = slides.closest(".m-project__item_active");
+			var count = $.inArray(activeSlide[0], slides);
+			if (button.hasClass("m-slider__controls_button-left")) {
+				if (count === 0) {
+					count = slides.length - 1;
+				} else {
+					count--;
+				}
+			} else {
+				if (count === slides.length - 1) {
+					count = 0;
+				} else {
+					count++;
+				}
+			}
+			$(activeSlide).animate({"top":"100%"}, 300).removeClass("m-project__item_active").animate({"top":"-100%"}, 0);
+			activeSlide = slides[count];
+			$(activeSlide).animate({"top":"0%"}, 300).addClass("m-project__item_active");
+		}
+
+		function slideUp(button, slides) {
+			var activeSlide = slides.closest(".m-project__item_active");
+			var count = $.inArray(activeSlide[0], slides);
+			if (button.hasClass("m-slider__controls_button-left")) {
+				if (count === 0) {
+					count = slides.length - 1;
+				} else {
+					count--;
+				}
+			} else {
+				if (count === slides.length - 1) {
+					count = 0;
+				} else {
+					count++;
+				}
+			}
+			
+			$(activeSlide).animate({"top":"-100%"}, 300).removeClass("m-project__item_active").animate({"top":"100%"}, 0);
+			activeSlide = slides[count];
+			$(activeSlide).animate({"top":"100%"}, 0).animate({"top":"0%"}, 300).addClass("m-project__item_active");
+		}
+
+	}());
 });
 
 /* Scroll Spy */

@@ -143,6 +143,7 @@
 		bottom: calc(7.2rem + 20.6rem);
 		left: 50%;
 		transform: translateX(-50%);
+		z-index: 10;
 		@include tablet {
 			bottom: calc(5.2rem + 15.6rem);
 		}

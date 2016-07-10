@@ -1202,8 +1202,9 @@
 	background-color: #f2f0e8;
 	overflow: auto;
 	&__description {
-		position: relative;
 		display: block;
+		overflow: hidden;
+		position: relative;
 		float: left;
 		text-align: center;
 		@include desktop {
@@ -1508,4 +1509,28 @@
 	overflow: hidden;
 	object-fit: cover;
 	z-index: -1;
+}
+
+.m-corner {
+	position: absolute;
+	bottom: -50px;
+	margin: 50px auto;
+	&_blog {
+		fill: #faf8f0;
+	}
+	&_works {
+		fill: rgba(13, 17, 32, 0.85);
+	}
+	&_about-left {
+		fill: #f2f0e8;
+	}
+	&_about-right {
+		fill: #efebe0;
+		@include tablet {
+			fill: #f2f0e8;
+		}
+		@include phone {
+			fill: #f2f0e8;
+		}
+	}
 }

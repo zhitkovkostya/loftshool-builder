@@ -8,6 +8,9 @@ html
 	<![endif]-->
 	include common/_menu
 	include common/_header
+	svg(xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 85" preserveaspectratio="none").m-corner.m-corner_works
+		polygon(points="0,0   0,86   500.8,86   500.8,75.5")
+		polygon(points="1000,0   1000,86   500,86   500,75.5")
 	.l-header__title
 		.m-title__container
 			svg.m-title__background
@@ -25,22 +28,42 @@ html
 						li.m-project__item
 							img(src="assets/img/project3.png").m-slider__image
 				section.m-slider__description
-					.m-project
-						h2.m-title.m-title_2 Интернет-радио
-						span.m-project__description HTML5, CSS3, jQuery, three.js
-						a(href="http://viberoom.audio").m-button.m-button__link
-							svg.m-button__icon
-								use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="assets/img/sprite.svg#link")
-							span.fa.fa-link
-							|  Посмотреть сайт
+					ul.m-project__list
+						li.m-project__item.m-project__item_active
+							.m-project
+								h2.m-title.m-title_2 Интернет-радио
+								span.m-project__description HTML5, CSS3, jQuery, three.js
+								a(href="http://viberoom.audio", target="_blank").m-button.m-button__link
+									svg.m-button__icon
+										use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="assets/img/sprite.svg#link")
+									span.fa.fa-link
+									|  Посмотреть сайт
+						li.m-project__item
+							.m-project
+								h2.m-title.m-title_2 Сайт музыкального лейбла
+								span.m-project__description Jade, Sass, jQuery, gulp, bower, WordPress
+								a(href="http://ezmusic.org", target="_blank").m-button.m-button__link
+									svg.m-button__icon
+										use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="assets/img/sprite.svg#link")
+									span.fa.fa-link
+									|  Посмотреть сайт
+						li.m-project__item
+							.m-project
+								h2.m-title.m-title_2 Сайт-портфолио
+								span.m-project__description Jade, Sass, jQuery, gulp, bower
+								a(href="http://zhitkov.me", target="_blank").m-button.m-button__link
+									svg.m-button__icon
+										use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="assets/img/sprite.svg#link")
+									span.fa.fa-link
+									|  Посмотреть сайт
 				section.m-slider__controls
 					.m-slider__controls_left
 						ul.m-project__list
 							li.m-project__item
 								img(src="assets/img/project1.png").m-slider__image
-							li.m-project__item.m-project__item_active
-								img(src="assets/img/project2.png").m-slider__image
 							li.m-project__item
+								img(src="assets/img/project2.png").m-slider__image
+							li.m-project__item.m-project__item_active
 								img(src="assets/img/project3.png").m-slider__image
 						button.m-slider__controls_button.m-slider__controls_button-left
 							svg.m-slider__controls-icon
@@ -49,9 +72,9 @@ html
 						ul.m-project__list
 							li.m-project__item
 								img(src="assets/img/project1.png").m-slider__image
-							li.m-project__item
-								img(src="assets/img/project2.png").m-slider__image
 							li.m-project__item.m-project__item_active
+								img(src="assets/img/project2.png").m-slider__image
+							li.m-project__item
 								img(src="assets/img/project3.png").m-slider__image
 						button.m-slider__controls_button.m-slider__controls_button-right
 							svg.m-slider__controls-icon
