@@ -1,5 +1,6 @@
 doctype html
 html
+	- var title = "Мои работы | Личный сайт Константина Житкова"
 	include common/_head
 	body
 	include common/_preloader
@@ -67,7 +68,7 @@ html
 								img(src="assets/img/project3.png").m-slider__image
 						button.m-slider__controls_button.m-slider__controls_button-left
 							svg.m-slider__controls-icon
-								use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="assets/img/sprite.svg#slider_arrow_down")
+								use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="assets/img/sprite.svg#arrow_down")
 					.m-slider__controls_right
 						ul.m-project__list
 							li.m-project__item
@@ -78,7 +79,7 @@ html
 								img(src="assets/img/project3.png").m-slider__image
 						button.m-slider__controls_button.m-slider__controls_button-right
 							svg.m-slider__controls-icon
-								use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="assets/img/sprite.svg#slider_arrow_up")
+								use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="assets/img/sprite.svg#arrow_up")
 		section.l-section
 			.m-recalls
 				.m-title__container
@@ -110,5 +111,9 @@ html
 							a(href="#").m-tabs__link Отправить
 						li.m-tabs__item.m-tabs__item_special
 							a(href="#").m-tabs__link Очистить
+			//.l-header__arrow-down
+			//	a(href="#").m-arrow
+			//		svg.m-arrow__icon
+			//			use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="assets/img/sprite.svg#arrow_up")
 			include common/_footer
 	//script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbmH97MMfOdrC8s7zd4E8PZJkGQn--WR0")

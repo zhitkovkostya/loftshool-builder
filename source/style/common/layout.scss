@@ -428,11 +428,20 @@
 		position: relative;
 		height: 1px;
 		float: left;
+		transition: left 0.5s;
 		@include tablet {
-			display: none;
+			left: -70%;
+			width: 70%;
+			&.opened {
+				left: 0%;
+			}
 		}
 		@include phone {
-			display: none;
+			left: -90%;
+			width: 90%;
+			&.opened {
+				left: 0%;
+			}
 		}
 	}
 }

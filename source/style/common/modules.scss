@@ -272,7 +272,7 @@
 	&__question {
 		display: block;
 		font-family: 'Roboto', sans-serif;
-		font-size:1.6rem;
+		font-size: 1.6rem;
 		font-weight: 700;
 		line-height: 1.5;
 		color: #fff;
@@ -425,7 +425,7 @@
 	cursor: pointer;
 	fill: #fff;
 	&:hover {
-		fill: rgba(#fff,.7);
+		fill: rgba(#fff, .7);
 	}
 	&_open {
 		@include desktop {
@@ -923,9 +923,7 @@
 	}
 }
 
-.m-arrow-down {
-	background: url('../img/arrow_down.svg') no-repeat center center;
-	background-size: 2.5rem;
+.m-arrow {
 	display: block;
 	width: 2.5rem;
 	height: 2.5rem;
@@ -936,6 +934,12 @@
 	&:hover, &:active {
 		text-decoration: none;
 		height: 3rem;
+	}
+	&__icon {
+		display: block;
+		width: 2.5rem;
+		height: 2.5rem;
+		fill: #fff;
 	}
 }
 
@@ -1046,14 +1050,49 @@
 }
 
 .m-blog-contents {
+	height: 100vh;
+	padding-top: 1rem;
 	position: absolute;
 	top: 0;
 	left: 0;
+	@include tablet {
+		width: 100%;
+		background-color: $color_4;
+		z-index: 10;
+	}
+	@include phone {
+		width: 100%;
+		background-color: $color_4;
+		z-index: 10;
+	}
+	&__toggle {
+		display: block;
+		@include size(5.2rem);
+		background-color: $color_4;
+		position: absolute;
+		top: 50%;
+		right: -4rem;
+		transform: translate3D(-50%, 0, 0);
+		border-radius: 2.5rem;
+		@include desktop {
+			display: none;
+		}
+	}
 	&__list {
 		margin: 0;
 		padding: 0;
 		list-style: none;
 		text-align: right;
+		@include tablet {
+			position: absolute;
+			top: 50%;
+			transform: translate3D(0, -50%, 0);
+		}
+		@include phone {
+			position: absolute;
+			top: 50%;
+			transform: translate3D(0, -50%, 0);
+		}
 	}
 	&__item {
 		margin: 0;
@@ -1064,37 +1103,55 @@
 	&__link {
 		&:link, &:visited {
 			display: block;
-			padding: 10px 20px;
+			padding: 1rem 2rem;
 			position: relative;
 			font-weight: 400;
 			color: #566358;
 			text-decoration: none;
+			@include tablet {
+				padding: 2rem;
+				color: rgba(#fff, 0.7);
+			}
+			@include phone {
+				padding: 2rem;
+				color: rgba(#fff, 0.7);
+			}
 		}
 		&:hover, &:active {
 			color: $color_5;
-			&:after {
-				content: ' ';
-				position: absolute;
-				display: block;
-				background-color: $color_5;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				width: 3px;
+			@include desktop {
+				&:after {
+					content: ' ';
+					position: absolute;
+					display: block;
+					background-color: $color_5;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					width: 3px;
+				}
+			}
+			@include tablet {
+				color: #fff;
+			}
+			@include phone {
+				color: #fff;
 			}
 		}
 		&_active, &_active:link {
 			font-weight: 700;
 			color: #083c96;
-			&:after {
-				content: ' ';
-				position: absolute;
-				display: block;
-				background-color: $color_5;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				width: 3px;
+			@include desktop {
+				&:after {
+					content: ' ';
+					position: absolute;
+					display: block;
+					background-color: $color_5;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					width: 3px;
+				}
 			}
 		}
 	}
@@ -1153,7 +1210,7 @@
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		transform: translate(-50%,-50%);
+		transform: translate(-50%, -50%);
 		text-align: center;
 		font-family: 'Roboto', sans-serif;
 		font-size: 12.8px;
@@ -1169,11 +1226,11 @@
 	width: 100%;
 	viewBox: 0 0 $graph__d $graph__d;
 	&__canvas {
-		@include graph($graph__x,$graph__y,$graph__r,#dfdcd5,$graph__sw,transparent);
+		@include graph($graph__x, $graph__y, $graph__r, #dfdcd5, $graph__sw, transparent);
 	}
 	&__progress {
-		@include graph($graph__x,$graph__y,$graph__r,$color_3,$graph__sw,transparent);
-		@each $percent in (0, 10,20,30,40,50,60,70,80,90,100) {
+		@include graph($graph__x, $graph__y, $graph__r, $color_3, $graph__sw, transparent);
+		@each $percent in (0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100) {
 			&_#{$percent} {
 				stroke-dasharray: ($graph__p / 100 * $percent) $graph__p;
 			}
@@ -1309,7 +1366,7 @@
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			transform: translate3D(-50%,-50%,0);
+			transform: translate3D(-50%, -50%, 0);
 			@include size(4rem);
 			fill: #fff;
 		}
@@ -1453,6 +1510,7 @@
 		}
 	}
 }
+
 .m-login-form {
 	@include desktop {
 		padding: 3.6rem 2.1rem 2rem 2.1rem;
